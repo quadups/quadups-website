@@ -41,7 +41,7 @@ To set up the TechNovo website locally:
 
 1. **Clone the repository**:  
    ```bash[
-   git clone https://github.com/TechNovo/website.git](https://github.com/Technovo-Solutions/technovo-website)
+   git clone [Repo URL](https://github.com/Technovo-Solutions/technovo-website)
    cd website
    ```  
 
