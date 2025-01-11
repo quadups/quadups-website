@@ -4,6 +4,7 @@ import { Home } from './Pages/Home.tsx'
 import { About } from './Pages/About.tsx'
 import { Contact } from './Pages/Contact.tsx'
 import { Team } from './Pages/Team.tsx'
+import Services from './Pages/Services.tsx'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/team' element={<Team />} />
-      <Route path='/services' element={<Team />} />
+      <Route path='/services' element={<Services />} />
     </Route>
    </Routes>
 </BrowserRouter>

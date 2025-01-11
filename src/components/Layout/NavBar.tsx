@@ -21,7 +21,7 @@ export const NavBar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center space-x-6">
-          {["About Us", "Team", "Services", "Contact Us"].map((item, index) => (
+          {["About", "Team", "Services", "Contact"].map((item, index) => (
             <li key={index} className="group">
               <Link
                 to={`/${item.toLowerCase().replace(" ", "")}`}

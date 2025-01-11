@@ -15,6 +15,8 @@ const TeamMember = ({ name, position, image, linkedin, github, email }: TeamMemb
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.3 }}
       className="bg-white rounded-lg shadow-lg p-6 w-80 flex flex-col items-center"

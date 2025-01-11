@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { NavBar } from "../Layout/NavBar";
 
 export const Hero = () => {
   return (
@@ -24,8 +23,6 @@ export const Hero = () => {
         transition={{ duration: 1 }}
         className="relative z-10 flex flex-col h-full"
       >
-        {/* Navbar */}
-        <NavBar />
 
         {/* Hero Content */}
         <motion.div
