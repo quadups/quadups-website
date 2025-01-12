@@ -11,7 +11,7 @@ export const ServicesGrid = () => {
     {
       icon: Database,
       title: "Backend Development",
-      description: "Building robust and scalable server-side solutions using Node.js and Prisma.",
+      description: "Building robust and scalable server-side solutions using Node.js, Nest.js and Prisma.",
     },
     {
       icon: Smartphone,
