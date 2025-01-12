@@ -50,7 +50,7 @@ export const Contact = () => {
         const data = await response.json();
         toast({
           title: "Success",
-          description: "Message sent successfully!",
+          description: data.message || "Message sent successfully!",
         });
       } else {
         const errorData = await response.json();
