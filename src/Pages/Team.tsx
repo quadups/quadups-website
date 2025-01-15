@@ -26,7 +26,7 @@ export const Team = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto px-6 py-16 bg-cover bg-center relative"
+      className=" mx-auto px-6 py-16 bg-cover bg-center relative"
       style={{ backgroundImage: 'url(/bg2.jpg)' }}
     >
       {/* Overlay for better readability */}
