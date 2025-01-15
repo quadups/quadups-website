@@ -9,12 +9,12 @@ import {
 
 export const NavBar = () => {
   return (
-    <nav className="bg-gray-800 shadow-lg sticky top-0 z-50 w-full">
-      <div className="container mx-auto flex items-center justify-between px-4 py-3">
+    <nav className="bg-[#000000ef] shadow-lg sticky top-0 z-50 w-full">
+      <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <Link
           to="/"
-          className="text-gradient ml-4 text-2xl md:text-3xl font-bold uppercase tracking-wide text-white"
+          className=" ml-4 text-2xl md:text-3xl font-bold uppercase tracking-wide text-white"
         >
           TechNovo
         </Link>
@@ -50,7 +50,7 @@ export const NavBar = () => {
           <SheetContent side="right" className="w-[300px] bg-gray-800">
             <SheetHeader />
             <ul className="flex flex-col space-y-4 p-6">
-              {["About Us", "Team", "Services", "Contact Us"].map(
+              {["About", "Team", "Services", "Contact"].map(
                 (item, index) => (
                   <li key={index}>
                     <Link

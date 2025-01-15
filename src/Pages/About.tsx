@@ -25,14 +25,15 @@ export const About = () => {
   ];
 
   return (
+    <div className="div w-screen">
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="container mx-auto px-6 py-16 bg-cover bg-center relative"
+      transition={{ duration: 0.5 }} 
+      className="w-full mx-auto py-16 bg-cover bg-center relative "
       style={{ backgroundImage: `url('/bg2.jpg')` }} 
     >
-      <div className="mx-auto px-6 py-16">
+      <div className=" mx-auto">
         {/* Section Title */}
         <motion.h1
           initial={{ y: -100 }}
@@ -84,5 +85,6 @@ export const About = () => {
         </div>
       </div>
     </motion.div>
+    </div>
   );
 };

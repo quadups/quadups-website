@@ -2,7 +2,8 @@ import { Rocket, CheckCircle2 } from "lucide-react";
 
 export const Delivering = () => {
   return (
-    <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-10 lg:p-20">
+    <div className="bg-[#1c1b1baa] text-white p-10 lg:p-20">
+    {/* <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-10 lg:p-20"> */}
       {/* Hero Section */}
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between space-y-10 lg:space-y-0">
         {/* Text Section */}

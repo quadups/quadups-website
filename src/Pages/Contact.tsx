@@ -73,7 +73,7 @@ export const Contact = () => {
 
   return (
     <div
-      className="relative container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+      className="relative  mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
       style={{
         backgroundImage: 'url("/bg2.jpg")',
         backgroundSize: "cover",
