@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "framer-motion";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,17 +14,24 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
-  message: z
-    .string()
-    .min(10, { message: "Message must be at least 10 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
 export const Contact = () => {
+
+  const YOUR_SERVICE_ID = 'service_xbht5y8'
+  const YOUR_TEMPLATE_ID = 'template_c2hh8u5'
+  const YOUR_PUBLIC_KEY = 'kYgJrnWRQaZcpi-m6'
+
+  const formRef = useRef<HTMLFormElement | null>(null);
   const { toast } = useToast();
+
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -35,31 +41,27 @@ export const Contact = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof contactSchema>) => {
+  const onSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-  
-      if (response.ok) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const data = await response.json();
-        toast({
-          title: "Success",
-          description: data.message || "Message sent successfully!",
-        });
-      } else {
-        const errorData = await response.json();
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: `Error: ${errorData.message}`,
-        });
-      }
+      emailjs
+        .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formRef.current || '', YOUR_PUBLIC_KEY)
+        .then(
+          () => {
+            toast({
+              title: "Success",
+              description: "Email sent successfully!",
+            });
+          },
+          (error) => {
+            toast({
+              variant: "destructive",
+              title: "Error",
+              description: `Failed to send email: ${error.text}`,
+            });
+          }
+        );
+   
+
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -70,17 +72,15 @@ export const Contact = () => {
     }
   };
 
-
   return (
     <div
-      className="relative  mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+      className="relative mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
       style={{
         backgroundImage: 'url("/bg2.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Left Image Section */}
       <motion.div
         className="hidden lg:block"
         initial={{ opacity: 0, x: -50 }}
@@ -94,7 +94,6 @@ export const Contact = () => {
         />
       </motion.div>
 
-      {/* Form Section */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -107,8 +106,7 @@ export const Contact = () => {
           you as soon as possible.
         </p>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Name Field */}
+          <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="name"
@@ -116,14 +114,12 @@ export const Contact = () => {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} className="bg-white"/>
+                    <Input placeholder="John Doe" {...field} className="bg-white" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
-            {/* Email Field */}
             <FormField
               control={form.control}
               name="email"
@@ -137,8 +133,6 @@ export const Contact = () => {
                 </FormItem>
               )}
             />
-
-            {/* Message Field */}
             <FormField
               control={form.control}
               name="message"
@@ -157,12 +151,7 @@ export const Contact = () => {
                 </FormItem>
               )}
             />
-
-            {/* Submit Button */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button type="submit" className="w-full">
                 Send Message
               </Button>
@@ -173,3 +162,4 @@ export const Contact = () => {
     </div>
   );
 };
+
