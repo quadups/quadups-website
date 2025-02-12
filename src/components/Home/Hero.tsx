@@ -6,8 +6,8 @@ export const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative bg-black w-full h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/bg1.jpg')" }}
+      className=" w-full h-screen bg-cover bg-center"
+     
     >
       {/* Overlay */}
       <motion.div
@@ -29,13 +29,13 @@ export const Hero = () => {
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ duration: 1 }}
-          className="flex flex-col items-center justify-center flex-1 text-center text-white px-6"
+          className="flex flex-col pt-32 items-center justify-center flex-1 text-center text-white "
         >
           <motion.h1
             initial={{ x: -100 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
-            className="font-extrabold text-4xl md:text-6xl lg:text-7xl"
+            className="font-black text-xl md:text-xl lg:text-5xl tracking-wide"
           >
             Innovative Software Solutions
           </motion.h1>
@@ -43,18 +43,10 @@ export const Hero = () => {
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
-            className="text-lg md:text-xl lg:text-2xl mt-4 max-w-3xl"
+            className="text-lg md:text-md lg:text-lg mt-1 tracking-wide"
           >
-            Transforming your ideas into cutting-edge software services.
+            Transforming your ideas into simple, effective software that drives real results.
           </motion.p>
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1 }}
-            className="mt-8 px-8 py-4 rounded-md border-2 border-white font-medium text-lg hover:bg-white hover:text-black transition"
-          >
-            LEARN MORE
-          </motion.button>
         </motion.div>
       </motion.div>
     </motion.div>

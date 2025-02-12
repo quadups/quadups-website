@@ -4,7 +4,7 @@ import { NavBar } from "./NavBar"
 
 const AppLayout = () => {
   return (
-    <div>
+    <div className="bg-black">
       <NavBar />
         <Outlet/>
         <Footer/>

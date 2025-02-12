@@ -1,16 +1,30 @@
+import { Asterisk } from "lucide-react";
 
 
 export const Band = () => {
   return (
-    <div style={{  overflow: 'hidden' }} className="p-2 border-y-4">
+    <div style={{  overflow: 'hidden' }} className="p-3 bg-[rgb(27,0,45)]">
       <div className="marquee">
-        <ul className="flex uppercase font-black text-white text-3xl whitespace-nowrap">
-          <li className="mx-12">UI/UX DESIGNS .</li>
-          <li className="mx-12">WEB APP DEVELOPMENTS .</li>
-          <li className="mx-12">MOBILE APP DEVELOPMENTS .</li>
-          <li className="mx-12">BUSINESS BRANDING .</li>
-          {/* with time we can add more services we offer or anything we want there ... i dnnno */}
-        </ul>
+
+      <ul className="flex capitalize text-white text-lg whitespace-nowrap tracking-wide">
+        {
+ [
+  'UI/UX Designs',
+   'Web app developments',
+   'software consultations',
+    'mobile app developments',
+     'business brandings' 
+    ].map((service) => {
+  return <>
+  <li className="mx-16">{service} </li>
+  <Asterisk />
+
+  </>
+})
+        }
+       
+      </ul>
+   
       </div>
     </div>
   );
