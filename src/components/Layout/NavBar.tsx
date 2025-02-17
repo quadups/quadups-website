@@ -62,7 +62,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       {/* Company Logo/Brand - Links to homepage */}
       <Link
         to="/"
-        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider ${scrolled ? 'text-white' : 'text-black'}`}
+        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider text-white`}
       >
         CompanyName
       </Link>
@@ -78,7 +78,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
           >
             <Link
               to={`/${item.toLowerCase().replace(" ", "")}`}
-              className={`text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap ${scrolled ? 'text-white' : 'text-black'}`}
+              className={`text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap text-white`}
             >
               <motion.span
                 className="relative"
@@ -104,7 +104,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         >
           <button
             onClick={onContactClick}
-            className={`text-sm md:text-base tracking-wider whitespace-nowrap ${scrolled ? 'text-white' : 'text-black'}`}
+            className={`text-sm md:text-base tracking-wider whitespace-nowrap text-white`}
           >
             Contact
           </button>
