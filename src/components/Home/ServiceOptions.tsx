@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ServiceOptions = () => {
   return (
     <div className='bg-[rgb(253,227,253)] p-24 h-screen'>
