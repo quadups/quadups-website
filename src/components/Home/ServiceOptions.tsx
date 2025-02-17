@@ -1,6 +1,5 @@
-import {  ArrowUpRight, IceCream2Icon, Star } from "lucide-react"
+import { ArrowUpRight, IceCream2Icon, Star } from "lucide-react"
 import { Link } from "react-router-dom"
-
 
 const ServiceOptions = () => {
   return (

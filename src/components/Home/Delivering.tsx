@@ -1,5 +1,3 @@
-import { Rocket, CheckCircle2 } from "lucide-react";
-
 export const Delivering = () => {
   return (
     <div className="  text-black p-10 pt-24">
