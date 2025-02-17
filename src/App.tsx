@@ -1,19 +1,10 @@
-<<<<<<< HEAD
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Home } from './Pages/Home.tsx'
-import { About } from './Pages/About.tsx'
-import { Contact } from './Pages/Contact.tsx'
-import { Team } from './Pages/Team.tsx'
-import Services from './Pages/Services.tsx'
-=======
 /**
  * @file App.tsx
  * @description Main entry point for the application, handles routing and conditional layout rendering
  * @author Quadups Dev Team
  * @last_modified 2025
  */
->>>>>>> 9cacdf90670e7f01f4f98cb64c06463fa495978c
 
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Home } from './Pages/Home.tsx';
@@ -32,19 +23,6 @@ import StartProject from './Pages/StartProject.tsx';
  */
 function App() {
   return (
-<<<<<<< HEAD
-   <BrowserRouter>
-   <Routes>
- 
-      <Route index element={<Home />} />
-      <Route path='/aboutus' element={<About />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/team' element={<Team />} />
-      <Route path='/services' element={<Services />} />
-   </Routes>
-</BrowserRouter>
-  )
-=======
     <BrowserRouter>
       {/* Main routing structure for the application */}
       <Routes>
@@ -83,7 +61,6 @@ function LayoutWrapper() {
 
   // Render the default layout for all other pages
   return <AppLayout />;
->>>>>>> 9cacdf90670e7f01f4f98cb64c06463fa495978c
 }
 
 export default App;
