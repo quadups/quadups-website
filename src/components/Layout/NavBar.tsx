@@ -1,11 +1,3 @@
-/**
- * @file NavBar.tsx
- * @description Primary navigation component handling both desktop and mobile navigation.
- * Implements responsive design, animations, and scroll-based styling.
- * @author Quadups Development Team
- * @last_modified 2025
- */
-
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import {
@@ -59,9 +51,9 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
 
   return (
     <motion.nav
-      initial={{ backgroundColor: "rgba(135,10,129, 0)", boxShadow: "none" }}
+      initial={{ backgroundColor: "rgba(20,0,33, .7)", boxShadow: "none" }}
       animate={{
-        backgroundColor: scrolled ? "rgba(20,0,33, .7)" : "rgba(135,10,129, 0)",
+        backgroundColor: scrolled ? "rgba(20,0,33, .9)" : "rgba(20,0,33, 0)",
         boxShadow: scrolled ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
       }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -70,7 +62,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       {/* Company Logo/Brand - Links to homepage */}
       <Link
         to="/"
-        className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider text-white"
+        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider ${scrolled ? 'text-white' : 'text-black'}`}
       >
         CompanyName
       </Link>
@@ -86,7 +78,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
           >
             <Link
               to={`/${item.toLowerCase().replace(" ", "")}`}
-              className="text-white text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap"
+              className={`text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap ${scrolled ? 'text-white' : 'text-black'}`}
             >
               <motion.span
                 className="relative"
@@ -112,7 +104,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         >
           <button
             onClick={onContactClick}
-            className="text-white text-sm md:text-base tracking-wider whitespace-nowrap"
+            className={`text-sm md:text-base tracking-wider whitespace-nowrap ${scrolled ? 'text-white' : 'text-black'}`}
           >
             Contact
           </button>
@@ -128,6 +120,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         <Link
           className="text-white text-sm md:text-base tracking-wider bg-[#870a81] px-4 sm:px-5 py-2 rounded-full shadow-md transition-all duration-300 hover:bg-[#9c1396] whitespace-nowrap"
           to={"startaproject"}
+          target="_blank"
         >
           Start a Project
         </Link>
@@ -191,3 +184,4 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
     </motion.nav>
   );
 };
+

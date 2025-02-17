@@ -12,7 +12,7 @@ import { Hero } from "../components/Home/Hero"; // Hero section component
 import ServiceOptions from "@/components/Home/ServiceOptions"; // Service options section component
 import { useState } from "react"; // useState hook for managing modal state
 import Modal from "@/components/ui/Modal"; // Modal component for contact form
-import { Contact } from "./Contact"; // Contact form component
+import { Contact } from "@/components/ContactPage.tsx/ContactPage";
 
 /**
  * Home component, serves as the landing page for the application

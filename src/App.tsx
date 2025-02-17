@@ -11,7 +11,7 @@ import { About } from './Pages/About.tsx';
 import { Team } from './Pages/Team.tsx';
 import Services from './Pages/Services.tsx';
 import AppLayout from './components/Layout/AppLayout.tsx';
-import StartProject from './components/StartProject/StartProject.tsx';
+import StartProject from './Pages/StartProject.tsx';
 
 /**
  * App component, serves as the root of the application

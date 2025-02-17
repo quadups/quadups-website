@@ -3,7 +3,7 @@ import Footer from "./Footer"
 import { NavBar } from "./NavBar"
 import { useState } from "react"
 import Modal from "@/components/ui/Modal"
-import { Contact } from "@/Pages/Contact"
+import { Contact } from "../ContactPage.tsx/ContactPage"
 
 const AppLayout = () => {
   const [isModalOpen, setModalOpen] = useState(false);
