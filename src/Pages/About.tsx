@@ -1,8 +1,7 @@
 import  AboutHero  from '@/components/About/AboutHero';
 import { Mission } from '@/components/About/Mission';
 import { FooterBand } from '@/components/ui/FooterBand';
-import Footer from '@/components/Layout/Footer';
-import { NavBar } from '@/components/Layout/NavBar';
+
 
 
 export const About = () => {
@@ -29,12 +28,9 @@ export const About = () => {
 
   return (
     <div className="div w-screen">
-      <NavBar />
       <AboutHero />
       <Mission />
       <FooterBand />
-   
-    <Footer />
-    </div>
+       </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -26,6 +26,11 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
   // Track scroll position to adjust navbar styling
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Determine if the current route is /services
+  const isServicesPage = location.pathname === "/services";
+
 
   // Add scroll event listener to handle navbar background opacity
   useEffect(() => {
@@ -53,7 +58,13 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
     <motion.nav
       initial={{ backgroundColor: "rgba(20,0,33, .7)", boxShadow: "none" }}
       animate={{
-        backgroundColor: scrolled ? "rgba(20,0,33, .9)" : "rgba(20,0,33, 0)",
+        backgroundColor: isServicesPage
+          ? scrolled
+            ? "rgba(255,255,255, .9)"
+            : "rgba(255,255,255, 1)"
+          : scrolled
+          ? "rgba(20,0,33, .9)"
+          : "rgba(20,0,33, 0)",
         boxShadow: scrolled ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
       }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -62,7 +73,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       {/* Company Logo/Brand - Links to homepage */}
       <Link
         to="/"
-        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider text-white`}
+        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider  ${isServicesPage ? "text-black" : "text-white"}`}
       >
         CompanyName
       </Link>
@@ -78,7 +89,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
           >
             <Link
               to={`/${item.toLowerCase().replace(" ", "")}`}
-              className={`text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap text-white`}
+              className={`text-sm md:text-base tracking-wider capitalize relative whitespace-nowrap ${isServicesPage ? "text-black" : "text-white"}`}
             >
               <motion.span
                 className="relative"
@@ -104,7 +115,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         >
           <button
             onClick={onContactClick}
-            className={`text-sm md:text-base tracking-wider whitespace-nowrap text-white`}
+            className={`text-sm md:text-base tracking-wider whitespace-nowrap ${isServicesPage ? "text-black" : "text-white"}`}
           >
             Contact
           </button>

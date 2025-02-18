@@ -8,7 +8,7 @@ const ServiceOptions = () => {
             <div className="main w-[60%]">
                 <div className="text w-[63%] py-6">
                 <h1 className="text-4xl font-bold p-3 pl-0 capitalize">Explore unique software <br/> solutions</h1>
-                <p className="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, reprehenderit totam, optio dolore esse minima nostrum consectetur facilis aliquam soluta quos molestias adipisci veritatis aperiam voluptate consequuntur sunt mollitia aspernatur!</p>
+                <p className="text-sm">We build digital solutions that make businesses more visible and successful. From websites and mobile apps to user-friendly designs and branding, we help companies create a strong online presence. Our goal is to turn ideas into real solutions that improve efficiency, connect with audiences, and drive growth in today’s digital world.</p>
                 </div>
             <div className="services py-2">
                 <Service />
