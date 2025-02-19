@@ -5,8 +5,6 @@ import { FooterBand } from '@/components/ui/FooterBand';
 import Modal from '@/components/ui/Modal';
 import { useState } from 'react';
 
-
-
 export const About = () => {
 
   const [isModalOpen, setModalOpen] = useState(false);
