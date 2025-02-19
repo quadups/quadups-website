@@ -1,4 +1,8 @@
-export const FooterBand = () => {
+interface ButtonProps {
+  /** Callback function triggered when Contact button is clicked */
+  onContactClick: () => void;
+}
+export const FooterBand: React.FC<ButtonProps> = ({ onContactClick }) => {
   return (
     <div
       style={{ backgroundImage: "url('/bg1.jpg')" }}
@@ -14,7 +18,7 @@ export const FooterBand = () => {
           effective software that drives real results
         </h1>
         <div className="mt-10"></div>
-        <button className="bg-[#870A81] hover:bg-[#3c1b3a] w-[140px] h-[40px] text-white font-medium rounded-[20px]">
+        <button onClick={onContactClick} className="bg-[#870A81] hover:bg-[#3c1b3a] w-[140px] h-[40px] text-white font-medium rounded-[20px]">
           Reach out to us
         </button>
       </div>
