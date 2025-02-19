@@ -1,6 +1,6 @@
 export const Delivering = () => {
   return (
-    <div className="  text-black p-10 pt-24">
+    <div className=" text-black p-10 pt-24">
 
       <div className="max-w-screen-xl mx-auto ">
         {/* title Section */}
