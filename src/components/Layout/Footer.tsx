@@ -11,11 +11,16 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaThreads } from "react-icons/fa6"; 
 import { BsInstagram } from "react-icons/bs";
+import { useState } from "react";
+import Modal from "../ui/Modal";
+import { Contact } from "../ContactPage.tsx/ContactPage";
 
 const Footer = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+
   return (
     <div>
-      <HomeContact />
+      <HomeContact onContactClick={() => setModalOpen(true)} />
       <footer className="bg-white flex justify-between px-24 border-t border-gray-700 p-4 ">
         {/* Copyright section */}
         <div className=" text-center  text-[17px] text-gray-700">
@@ -49,8 +54,13 @@ const Footer = () => {
             <BsInstagram className="text-pink-600 hover:text-pink-500 text-2xl" />
           </Link>
         </div>
+
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <Contact onClose={() => setModalOpen(false)} />
+      </Modal>
       </footer>
     </div>
+    
   );
 };
 
