@@ -64,7 +64,7 @@ const ServiceComponent = () => {
             variants={itemVariants}
           >
             <motion.img
-              src="/services-img-1.jpeg"
+              src="/services-img-1.avif"
               alt="Service Image"
               className="rounded-lg shadow-lg"
               width={500}
@@ -88,7 +88,7 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/services-img-2.jpeg"
+            src="/services-img-2.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg"
             width={500}
@@ -179,7 +179,7 @@ const ServiceComponent = () => {
         {/* Image on Right */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/service-img-3.jpeg"
+            src="/service-img-3.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
@@ -202,7 +202,7 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/services-img-5.jpeg"
+            src="/services-img-5.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
@@ -291,7 +291,7 @@ const ServiceComponent = () => {
         {/* Image on Right */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/services-img-4.jpeg"
+            src="/services-img-4.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
@@ -314,7 +314,7 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/services-img-6.jpeg"
+            src="/services-img-6.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
@@ -404,7 +404,7 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2 flex justify-center" variants={itemVariants}>
           <motion.img
-            src="/services-img-7.jpg"
+            src="/services-img-7.avif"
             alt="Blockchain Services"
             className="rounded-lg shadow-lg"
             width={500}
