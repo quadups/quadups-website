@@ -68,6 +68,7 @@ const ServiceComponent = () => {
               alt="Service Image"
               className="rounded-lg shadow-lg"
               width={500}
+              whileHover={{ scale: 1.05 }}
               height={300}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -95,6 +96,7 @@ const ServiceComponent = () => {
             height={300}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.6 }}
           />
         </motion.div>
@@ -183,6 +185,7 @@ const ServiceComponent = () => {
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
+            whileHover={{ scale: 1.05 }}
             height={300}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -207,6 +210,7 @@ const ServiceComponent = () => {
             className="rounded-lg shadow-lg ml-14"
             width={500}
             height={300}
+            whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -296,6 +300,7 @@ const ServiceComponent = () => {
             className="rounded-lg shadow-lg ml-14"
             width={500}
             height={300}
+            whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -318,6 +323,7 @@ const ServiceComponent = () => {
             alt="Service Description"
             className="rounded-lg shadow-lg ml-14"
             width={500}
+            whileHover={{ scale: 1.05 }}
             height={300}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -410,6 +416,7 @@ const ServiceComponent = () => {
             width={500}
             height={300}
             initial={{ opacity: 0, x: -50 }}
+            whileHover={{ scale: 1.05 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           />
