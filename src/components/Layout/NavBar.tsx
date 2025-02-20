@@ -112,7 +112,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         <SheetContent side="right" className="w-[80vw] sm:w-[300px] bg-gray-900">
           <SheetHeader />
           <ul className="flex flex-col space-y-6 p-4 sm:p-6 mt-8">
-            {["About", "Team", "Services"].map((item, index) => {
+            {["About", "Services"].map((item, index) => {
               const itemPath = `/${item.toLowerCase()}`;
               const isActive = location.pathname === itemPath;
 

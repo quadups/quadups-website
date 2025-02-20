@@ -9,7 +9,6 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Home } from './Pages/Home.tsx';
 import { About } from './Pages/About.tsx';
-import { Team } from './Pages/Team.tsx';
 import Services from './Pages/Services.tsx';
 import AppLayout from './components/Layout/AppLayout.tsx';
 import StartProject from './Pages/StartProject.tsx';
@@ -31,7 +30,6 @@ function App() {
           {/* Define individual routes for different pages */}
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
-          <Route path='/team' element={<Team />} />
           <Route path='/services' element={<Services />} />
           <Route path='/startaproject' element={<StartProject />} />
         </Route>
