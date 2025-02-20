@@ -30,7 +30,7 @@ export const Home = () => {
       <NavBar onContactClick={() => setModalOpen(true)} />
 
       {/* Hero section with a full-screen background image */}
-      <div className="relative hero w-full h-screen bg-cover bg-center" style={{ backgroundImage: "url('/bg1.jpg')" }}>
+      <div className="relative hero w-full h-screen bg-cover bg-center" style={{ backgroundImage: "url('/homeBg.jpg')" }}>
         <Hero />
       </div>
 

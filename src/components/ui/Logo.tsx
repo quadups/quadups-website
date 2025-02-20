@@ -11,7 +11,7 @@ interface LogoProps {
     //  {/* Company Logo/Brand - Links to homepage */}
      <Link
      to="/"
-     className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider  ${isServicePage ? "text-black" : "text-white"}`}
+     className={`text-xl md:text-2xl font-extrabold tracking-wider  ${isServicePage ? "text-black" : "text-white"}`}
    >
      CompanyName
    </Link>
