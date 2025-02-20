@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Logo } from "../ui/Logo";
 
 interface NavBarProps {
   /** Callback function triggered when Contact button is clicked */
@@ -70,13 +71,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       transition={{ duration: 0.4, ease: "easeInOut" }}
       className="fixed top-0 z-50 w-full px-4 sm:px-6 md:px-8 lg:px-40 py-4 flex items-center justify-between"
     >
-      {/* Company Logo/Brand - Links to homepage */}
-      <Link
-        to="/"
-        className={`text-lg sm:text-xl md:text-2xl font-extrabold tracking-wider  ${isServicesPage ? "text-black" : "text-white"}`}
-      >
-        CompanyName
-      </Link>
+      <Logo isServicePage = {isServicesPage} />
 
       {/* Desktop Navigation Links - Hidden on mobile */}
       <ul className="hidden lg:flex items-center space-x-6 xl:space-x-14">
