@@ -42,9 +42,9 @@ const ServiceOptions = () => {
       initial="hidden" 
       animate="visible" 
       variants={fadeInUp} 
-      className="bg-gray-100 px-6 py-16 sm:px-10 md:px-20 lg:px-28"
+      className="bg-gray-100 px-6 py-16 sm:px-10 md:px-20 lg:px-28 dark:text-black dark:bg-[#3A3A3A]"
     >
-      <div className="w-full flex flex-col lg:flex-row pb-10 gap-10">
+      <div className="w-full flex flex-col lg:flex-row pb-10 gap-10 ">
         {/* Main Content */}
         <motion.div 
           className="lg:w-2/3 w-full" 
@@ -53,10 +53,10 @@ const ServiceOptions = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="text py-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize leading-snug">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize leading-snug dark:text-white">
               Explore unique software <br className="hidden sm:block" /> solutions
             </h1>
-            <p className="text-sm sm:text-base leading-relaxed mt-2">
+            <p className="text-sm sm:text-base leading-relaxed mt-2 dark:text-white">
               We build digital solutions that make businesses more visible and
               successful. From websites and mobile apps to user-friendly
               designs and branding, we help companies create a strong online

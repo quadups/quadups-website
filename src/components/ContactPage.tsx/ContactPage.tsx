@@ -6,44 +6,42 @@
  * @last_modified 2025
  */
 
-import { zodResolver } from "@hookform/resolvers/zod"; // Resolver for zod schema validation with react-hook-form
-import { useForm } from "react-hook-form"; // React hook form for handling form state and validation
-import { z } from "zod"; // Zod for schema-based validation
-import { motion, AnimatePresence } from "framer-motion"; // Framer motion for animated UI transitions
-import { Button } from "@/components/ui/button"; // Button component for form submission
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form"; // Form components for building structured forms
-import { Input } from "@/components/ui/input"; // Input field component
-import { Textarea } from "@/components/ui/textarea"; // Textarea component for longer messages
-import { useToast } from "@/hooks/use-toast"; // Toast notifications for user feedback
-import emailjs from "@emailjs/browser"; // EmailJS for sending emails via a client-side service
-import { useRef } from "react"; // useRef hook for referencing the form DOM element
-import { X } from "lucide-react"; // X icon for closing the modal
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+import { X } from "lucide-react";
 
 // Zod schema for form validation
 const contactSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }), // Name validation
-  email: z.string().email({ message: "Invalid email address." }), // Email validation
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }), // Message validation
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Invalid email address." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
 export const Contact = ({ onClose }: { onClose?: () => void }) => {
-  // EmailJS credentials
   const YOUR_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const YOUR_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const YOUR_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-  const formRef = useRef<HTMLFormElement | null>(null); // Ref for form element
-  const { toast } = useToast(); // Toast notification hook
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const { toast } = useToast();
 
-  // React Hook Form setup with Zod validation
   const form = useForm<z.infer<typeof contactSchema>>({
-    resolver: zodResolver(contactSchema), // Use Zod resolver for form validation
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -51,23 +49,19 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
     },
   });
 
-  // Form submission handler
   const onSubmit = async () => {
     try {
-      // Sending form data to EmailJS
       emailjs
         .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formRef.current || "", YOUR_PUBLIC_KEY)
         .then(
           () => {
-            // On success, show success toast and reset the form
             toast({
               title: "Success",
               description: "Email sent successfully!",
             });
-            form.reset(); // Clear the form fields
+            form.reset();
           },
           (error) => {
-            // On failure, show error toast
             toast({
               variant: "destructive",
               title: "Error",
@@ -99,7 +93,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative w-full max-w-[885px] min-h-[400px] md:h-[558px] rounded-lg bg-white p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg"
+          className="relative w-full max-w-[885px] min-h-[400px] md:h-[558px] rounded-lg bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg"
         >
           {/* Close Button */}
           <motion.button
@@ -108,7 +102,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
             className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10"
             onClick={onClose}
           >
-            <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-gray-600" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100" />
           </motion.button>
 
           {/* Heading */}
@@ -116,7 +110,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-4 sm:mb-6 md:mb-[36px] mt-6 sm:mt-8 md:mt-10"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white leading-tight mb-4 sm:mb-6 md:mb-[36px] mt-6 sm:mt-8 md:mt-10"
           >
             We are happy to hear from you
           </motion.h2>
@@ -125,7 +119,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
           <Form {...form}>
             <motion.form
               ref={formRef}
-              onSubmit={form.handleSubmit(onSubmit)} // Submit handler for the form
+              onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-4 sm:space-y-5 md:space-y-7"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -142,7 +136,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                         <Input
                           placeholder="Name"
                           {...field}
-                          className="bg-gray-100 border border-gray-300 text-black rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
                         />
                       </motion.div>
                     </FormControl>
@@ -162,7 +156,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                         <Input
                           placeholder="Email"
                           {...field}
-                          className="bg-gray-100 border border-gray-300 text-black rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
                         />
                       </motion.div>
                     </FormControl>
@@ -181,7 +175,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                       <motion.div whileFocus={{ scale: 1.02 }}>
                         <Textarea
                           placeholder="Message"
-                          className="bg-gray-100 border border-gray-300 text-black rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[100px] sm:h-[128px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[100px] sm:h-[128px] mx-auto"
                           rows={5}
                           {...field}
                         />
@@ -200,7 +194,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
               >
                 <Button
                   type="submit"
-                  className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[10px] mx-auto bg-[#870A81] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
+                  className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[10px] mx-auto bg-[#870A81] dark:bg-[#620664] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
                 >
                   Contact Us
                 </Button>

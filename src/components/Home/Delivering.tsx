@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export const Delivering = () => {
   return (
-    <div className="text-black p-10 pt-24 bg-white">
+    <div className="text-black p-10 pt-24 bg-white dark:bg-[#1E1E1E]">
       <div className="max-w-screen-xl mx-auto">
         {/* title Section */}
-        <div className="lg:w-full text-center">
+        <div className="lg:w-full text-center dark:text-white">
           <motion.h1 
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export const Delivering = () => {
             >
               <img className="w-full h-full object-cover rounded-2xl" src="/coworkers-looking-monitor.jpg" alt="Background Image" />
             </motion.div>
-            <div className="pair flex-1 m-4 mb-0 w-full md:w-[60%]">
+            <div className="pair flex-1 m-4 mb-0 w-full md:w-[60%] dark:text-white">
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}

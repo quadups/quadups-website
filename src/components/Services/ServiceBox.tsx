@@ -15,14 +15,14 @@ const Service = ({ title, details, icon: Icon }: ServiceDetailProps) => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       whileHover={{ scale: 1.05 }}
       viewport={{ once: true }}
-      className="relative border border-gray-300 rounded-lg p-6 bg-white shadow-md w-full"
+      className="relative border border-gray-300 rounded-lg p-6 bg-white shadow-md w-full dark:text-black dark:bg-[#2A2A2A]"
     >
       {/* Title */}
       <div className="flex items-center font-semibold text-lg sm:text-xl">
         <motion.div whileHover={{ rotate: 10 }}>
           <Icon className="text-[#870A81]" size={24} />
         </motion.div>
-        <h2 className="px-2">{title}</h2>
+        <h2 className="px-2 dark:text-white">{title}</h2>
       </div>
 
       {/* Service Details */}
@@ -34,7 +34,7 @@ const Service = ({ title, details, icon: Icon }: ServiceDetailProps) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
             viewport={{ once: true }}
-            className="flex items-center text-sm sm:text-base"
+            className="flex items-center text-sm sm:text-base dark:text-white"
           >
             <CheckCircle className="text-[#870A81] mr-2" size={16} />
             <p>{detail}</p>

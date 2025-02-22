@@ -19,7 +19,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
       >
-        <button onClick={onClose} className="absolute top-2 right-2">Close</button>
         {children}
       </motion.div>
     </div>

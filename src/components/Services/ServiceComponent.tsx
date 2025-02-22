@@ -18,16 +18,16 @@ const itemVariants = {
 
 const ServiceComponent = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen overflow-x-hidden">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-full mx-auto py-16 bg-white relative sm:pt-56 pt-40 px-6 sm:px-32"
+        className="w-full mx-auto py-16 bg-white relative pt-56 px-4 md:px-32 dark:bg-[#1E1E1E]"
       >
         <motion.div
-          className="mx-auto flex justify-between items-center flex-col sm:flex-row"
+          className="mx-auto flex flex-col md:flex-row justify-between items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -41,9 +41,9 @@ const ServiceComponent = () => {
               initial={{ y: -100 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5 }}
-              className=" text-3xl sm:text-4xl font-bold text-black mb-2 sm:mb-4"
+              className="text-3xl md:text-4xl font-bold text-black mb-4 dark:text-white"
             >
-              Proffering Solutions Tailored 
+              Proffering Solutions Tailored <br />
               for Your Digital Success
             </motion.h1>
 
@@ -51,7 +51,7 @@ const ServiceComponent = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7 }}
-              className="text:lg sm:text-xl text-gray-700 mb-8"
+              className="text-lg md:text-xl text-gray-700 mb-8 dark:text-white"
             >
               From custom software to standout branding, we help you build,
               scale, and thrive in the digital world.
@@ -60,11 +60,11 @@ const ServiceComponent = () => {
 
           {/* Image Section on Right */}
           <motion.div
-            className="w-full md:w-1/2 flex justify-center md:justify-end"
+            className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0"
             variants={itemVariants}
           >
             <motion.img
-              src="/woman-server-hub.jpg"
+              src="/services-img-1.avif"
               alt="Service Image"
               className="rounded-lg shadow-lg"
               width={500}
@@ -80,7 +80,7 @@ const ServiceComponent = () => {
 
       {/* Simple Section Below Hero */}
       <motion.section
-        className="flex items-center justify-between bg-[#DADADA] p-6 sm:p-12 flex-col-reverse sm:flex-row"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#DADADA] p-8 md:p-12 dark:bg-[#2E2E2E]"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -89,7 +89,7 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/computer-code.jpg"
+            src="/services-img-2.avif"
             alt="Service Description"
             className="rounded-lg shadow-lg"
             width={500}
@@ -103,17 +103,17 @@ const ServiceComponent = () => {
 
         {/* Text on Right */}
         <motion.div
-          className="w-full md:w-1/2 text-left ml-6 flex flex-col gap-3"
+          className="w-full md:w-1/2 text-left mt-8 md:mt-0 md:ml-6 flex flex-col gap-3"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black mb-2 dark:text-white"
             variants={itemVariants}
           >
             Website Design & Development
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             We design and develop high-performing, responsive websites customized
@@ -124,12 +124,13 @@ const ServiceComponent = () => {
 
           {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-[24px] items-center sm:mt-8 mt-2 mb-10 sm:mb-0 bg-[#870A81] w-72 sm:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start a Web Project
           </motion.a>
@@ -138,7 +139,7 @@ const ServiceComponent = () => {
 
       {/* Section 2 */}
       <motion.section
-        className="flex items-center sm:justify-between justify-center bg-[#ECECEC] flex-col sm:flex-row sm:p-12 py-12 px-6"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#ECECEC] p-8 md:p-12 dark:bg-[#3A3A3A]"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -146,17 +147,17 @@ const ServiceComponent = () => {
       >
         {/* Text on Left */}
         <motion.div
-          className="w-full md:w-1/2 text-left flex flex-col gap-3 sm:ml-8"
+          className="w-full md:w-1/2 text-left flex flex-col gap-3 md:ml-8"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black mb-2 dark:text-white"
             variants={itemVariants}
           >
             Mobile Development
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             We build feature-rich, user-friendly, and scalable mobile
@@ -167,23 +168,24 @@ const ServiceComponent = () => {
 
           {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-[24px] items-center sm:mt-8 mb-8 bg-[#870A81] w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start a Mobile Development Project
           </motion.a>
         </motion.div>
 
         {/* Image on Right */}
-        <motion.div className="w-full md:w-1/2" variants={itemVariants}>
+        <motion.div className="w-full md:w-1/2 mt-8 md:mt-0" variants={itemVariants}>
           <motion.img
-            src="/hand-holding-sm.jpg"
+            src="/service-img-3.avif"
             alt="Service Description"
-            className="rounded-lg shadow-lg sm:ml-14"
+            className="rounded-lg shadow-lg md:ml-14"
             width={500}
             whileHover={{ scale: 1.05 }}
             height={300}
@@ -196,18 +198,18 @@ const ServiceComponent = () => {
 
       {/* Section 3 */}
       <motion.section
-        className="flex items-center justify-between bg-[#DADADA] sm:p-12 p-6 flex-col-reverse sm:flex-row"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 md:p-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         {/* Image on Left */}
-        <motion.div className="w-full md:w-1/2 py-6 sm:py-0" variants={itemVariants}>
+        <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/user-experience.jpg"
+            src="/services-img-5.avif"
             alt="Service Description"
-            className="rounded-lg shadow-lg sm:ml-14"
+            className="rounded-lg shadow-lg md:ml-14"
             width={500}
             height={300}
             whileHover={{ scale: 1.05 }}
@@ -219,17 +221,17 @@ const ServiceComponent = () => {
 
         {/* Text on Right */}
         <motion.div
-          className="w-full md:w-1/2 text-left flex flex-col gap-3 ml-8"
+          className="w-full md:w-1/2 text-left flex flex-col gap-3 md:ml-8 mt-8 md:mt-0"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black mb-2 dark:text-white"
             variants={itemVariants}
           >
             UI/UX Design
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             Great design is more than just looks—it’s about usability. We create
@@ -239,12 +241,13 @@ const ServiceComponent = () => {
 
           {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-[24px] items-center mt-8 bg-[#870A81] sm:w-[400px] w-72 h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start a UI/UX Project
           </motion.a>
@@ -253,7 +256,7 @@ const ServiceComponent = () => {
 
       {/* Section 4 */}
       <motion.section
-        className="flex items-center justify-between bg-[#ECECEC] sm:p-12 p-6 flex-col sm:flex-row"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#ECECEC] p-8 md:p-12 dark:bg-[#3A3A3A]"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -261,17 +264,17 @@ const ServiceComponent = () => {
       >
         {/* Text on Left */}
         <motion.div
-          className="w-full md:w-1/2 text-left flex flex-col gap-3 sm:ml-8 ml-0"
+          className="w-full md:w-1/2 text-left flex flex-col gap-3 md:ml-8"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black dark:text-white mb-2"
             variants={itemVariants}
           >
             Branding
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 sm:mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             Your brand is your identity, and we help you shape it. From logo
@@ -281,23 +284,24 @@ const ServiceComponent = () => {
 
           {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-[24px] items-center mt-8 bg-[#870A81] sm:mb-0 mb-8 sm:w-[400px] w-72 h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start a Branding Project
           </motion.a>
         </motion.div>
 
         {/* Image on Right */}
-        <motion.div className="w-full md:w-1/2" variants={itemVariants}>
+        <motion.div className="w-full md:w-1/2 mt-8 md:mt-0" variants={itemVariants}>
           <motion.img
-            src="/map.jpg"
+            src="/services-img-4.avif"
             alt="Service Description"
-            className="rounded-lg shadow-lg sm:ml-14"
+            className="rounded-lg shadow-lg md:ml-14"
             width={500}
             height={300}
             whileHover={{ scale: 1.05 }}
@@ -310,7 +314,7 @@ const ServiceComponent = () => {
 
       {/* Section 5 */}
       <motion.section
-        className="flex items-center justify-between bg-[#DADADA] sm:p-12 p-6 flex-col-reverse sm:flex-row"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 md:p-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -319,9 +323,9 @@ const ServiceComponent = () => {
         {/* Image on Left */}
         <motion.div className="w-full md:w-1/2" variants={itemVariants}>
           <motion.img
-            src="/man-suit.jpg"
+            src="/services-img-6.avif"
             alt="Service Description"
-            className="rounded-lg shadow-lg sm:ml-14"
+            className="rounded-lg shadow-lg md:ml-14"
             width={500}
             whileHover={{ scale: 1.05 }}
             height={300}
@@ -333,17 +337,17 @@ const ServiceComponent = () => {
 
         {/* Text on Right */}
         <motion.div
-          className="w-full md:w-1/2 text-left flex flex-col gap-3 ml-8"
+          className="w-full md:w-1/2 text-left flex flex-col gap-3 md:ml-8 mt-8 md:mt-0"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black mb-2 dark:text-white"
             variants={itemVariants}
           >
             Software Consultation
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             Not sure where to start? We provide expert software consultation to
@@ -353,12 +357,13 @@ const ServiceComponent = () => {
 
           {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-[24px] items-center mt-8 mb-8 sma;mb-0 bg-[#870A81] sm:w-[400px] w-72 h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start Consultation
           </motion.a>
@@ -367,7 +372,7 @@ const ServiceComponent = () => {
 
       {/* Blockchain Services Section */}
       <motion.section
-        className="flex items-center justify-between bg-[#ECECEC] sm:p-12 p-6 flex-col sm:flex-row"
+        className="flex flex-col md:flex-row items-center justify-between bg-[#ECECEC] dark:bg-[#3A3A3A] p-8 md:p-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -375,17 +380,17 @@ const ServiceComponent = () => {
       >
         {/* Text on Right */}
         <motion.div
-          className="w-full md:w-1/2 text-left flex flex-col gap-3 sm:ml-8"
+          className="w-full md:w-1/2 text-left flex flex-col gap-3 md:ml-8"
           variants={itemVariants}
         >
           <motion.h2
-            className="text-2xl font-bold text-black mb-2"
+            className="text-2xl font-bold text-black mb-2 dark:text-white"
             variants={itemVariants}
           >
             Blockchain Development & Smart Contracts
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 mb-4"
+            className="text-lg text-gray-600 mb-4 dark:text-white"
             variants={itemVariants}
           >
             Harness the power of blockchain technology to build secure,
@@ -394,21 +399,22 @@ const ServiceComponent = () => {
             to your business needs.
           </motion.p>
 
-          {/* Call to Action Button ... is there a reason why you used a instead of Link? */}
+          {/* Call to Action Button */}
           <motion.a
-            href="startaproject"
+            href="/startaproject"
+            target="_blank"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-6 items-center mt-8 bg-[#870A81] sm:w-[400px] w-72 text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center text-center"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center text-center"
           >
             Start Blockchain Project
           </motion.a>
         </motion.div>
 
         {/* Image on Left */}
-        <motion.div className="w-full md:w-1/2 flex justify-center mt-6 sm:mt-0" variants={itemVariants}>
+        <motion.div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0" variants={itemVariants}>
           <motion.img
             src="/services-img-7.avif"
             alt="Blockchain Services"
@@ -421,7 +427,6 @@ const ServiceComponent = () => {
             transition={{ duration: 0.6 }}
           />
         </motion.div>
-
       </motion.section>
     </div>
   );

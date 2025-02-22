@@ -11,16 +11,16 @@ const Footer = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-[#1E1E1E]">
       {/* Contact Section */}
       <HomeContact onContactClick={() => setModalOpen(true)} />
 
       {/* Footer Section */}
-      <footer className="border-t border-gray-300 p-6">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between text-gray-700 space-y-4 md:space-y-0">
+      <footer className="border-t border-gray-300 p-6 dark:bg-[#1E1E1E]">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between text-gray-700 dark:text-gray-300 space-y-4 md:space-y-0">
           {/* Copyright Section */}
           <div className="text-center text-lg">
-            &copy; CompanyName, {new Date().getFullYear()}
+            &copy; Quadups Ltd. {new Date().getFullYear()}
           </div>
 
           {/* Social Media Links */}
@@ -31,7 +31,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
             >
-              <FaGithub className="text-gray-800 hover:text-gray-600 text-2xl" />
+              <FaGithub className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white text-2xl" />
             </Link>
 
             <Link
@@ -40,7 +40,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
             >
-              <FaLinkedin className="text-blue-600 hover:text-blue-500 text-2xl" />
+              <FaLinkedin className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 text-2xl" />
             </Link>
 
             <Link
@@ -49,7 +49,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
             >
-              <FaXTwitter className="text-gray-800 hover:text-gray-600 text-2xl" />
+              <FaXTwitter className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white text-2xl" />
             </Link>
 
             <Link
@@ -58,7 +58,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
             >
-              <FaThreads className="text-gray-800 hover:text-gray-600 text-2xl" />
+              <FaThreads className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white text-2xl" />
             </Link>
 
             <Link
@@ -67,7 +67,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
             >
-              <BsInstagram className="text-pink-600 hover:text-pink-500 text-2xl" />
+              <BsInstagram className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 text-2xl" />
             </Link>
           </div>
         </div>

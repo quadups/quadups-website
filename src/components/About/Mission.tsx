@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Mission = () => {
   return (
-    <div className="p-10 sm:p-20 flex items-center justify-center flex-col bg-white">
+    <div className="p-10 sm:p-20 flex items-center justify-center flex-col bg-white dark:bg-[#1E1E1E]">
       <div className="mission p-10 sm:p-16 flex flex-col sm:flex-row justify-between w-full items-center">
         <MotionBox
           color={'rgb(135,10,129)'}
@@ -14,7 +14,7 @@ export const Mission = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="title capitalize text-3xl font-semibold flex items-end text-black mt-6 sm:mt-0"
+          className="title capitalize text-3xl font-semibold flex items-end text-black dark:text-white mt-6 sm:mt-0"
         >
           our mission
         </motion.h1>
@@ -25,7 +25,7 @@ export const Mission = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="title capitalize text-3xl font-semibold flex items-end text-black mb-6 sm:mb-0"
+          className="title capitalize text-3xl font-semibold flex items-end text-black dark:text-white mb-6 sm:mb-0"
         >
           our vision
         </motion.h1>
