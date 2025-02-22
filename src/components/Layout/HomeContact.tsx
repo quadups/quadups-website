@@ -11,7 +11,7 @@ const HomeContact: React.FC<ButtonProps> = ({ onContactClick }) => {
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Company Description */}
         <div className="text-lg text-black font-normal lg:w-1/2 px-4 dark:text-white">
-          <span className="font-bold">Company Name</span> is helping businesses & startups build, scale, and thrive in the digital world.
+          <span className="font-bold">Quadups</span> is helping businesses & startups build, scale, and thrive in the digital world.
           From developing powerful software solutions to creating impactful brands, we combine innovation and strategy to bring ideas to life.
         </div>
 
