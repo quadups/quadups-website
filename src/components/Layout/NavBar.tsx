@@ -109,7 +109,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         <motion.li whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }}>
           <div className="flex items-center gap-2">
             {darkMode ? (
-              <Moon className="w-5 h-5 text-black" />
+              <Moon  className={`w-5 h-5 ${isServicesPage ? "text-black" : "text-white"}`}  />
             ) : (
               <Sun className={`w-5 h-5 ${isServicesPage ? "text-black" : "text-white"}`} />
             )}
