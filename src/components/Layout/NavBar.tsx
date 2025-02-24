@@ -109,7 +109,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         <motion.li whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }}>
           <div className="flex items-center gap-2">
             {darkMode ? (
-              <Moon className={`w-5 h-5 ${isServicesPage ? "text-black" : "text-white"}`} />
+              <Moon  className={`w-5 h-5 ${isServicesPage ? "text-black" : "text-white"}`}  />
             ) : (
               <Sun className={`w-5 h-5 ${isServicesPage ? "text-black" : "text-white"}`} />
             )}
@@ -120,17 +120,13 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       </ul>
 
       <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }} className="hidden sm:block">
-        <Link
+        <a
           className="text-white text-sm md:text-base tracking-wider bg-[#870a81] px-4 sm:px-5 py-2 rounded-full shadow-md transition-all duration-300 hover:bg-[#9c1396] whitespace-nowrap"
-          to="/startaproject"
-          onClick={(e) => {
-            e.preventDefault();
-            window.open("/startaproject", "_blank");
-          }}
+          target="_blank"
+          href="/startaproject"
         >
           Start a Project
-        </Link>
-
+        </a>
       </motion.div>
 
       {/* MOBILE NAVIGATION */}
