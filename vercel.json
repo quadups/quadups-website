@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      { "source": "/startaproject", "destination": "/index.html" }
+    ],
+    "redirects": [
+      { "source": "/startaproject", "destination": "/startaproject", "statusCode": 200 }
+    ]
+  }
+  
