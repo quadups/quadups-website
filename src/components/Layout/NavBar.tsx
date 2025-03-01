@@ -122,7 +122,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }} className="hidden sm:block">
         <a
           className="text-white text-sm md:text-base tracking-wider bg-[#870a81] px-4 sm:px-5 py-2 rounded-full shadow-md transition-all duration-300 hover:bg-[#9c1396] whitespace-nowrap"
-          target="_blank"
+          // target="_blank"
           href="/startaproject"
         >
           Start a Project
