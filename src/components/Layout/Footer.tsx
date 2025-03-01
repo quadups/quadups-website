@@ -16,7 +16,7 @@ const Footer = () => {
       <HomeContact onContactClick={() => setModalOpen(true)} />
 
       {/* Footer Section */}
-    <footer className="border-t border-gray-300 p-6 dark:bg-[#1E1E1E]">xczs
+    <footer className="border-t border-gray-300 p-6 dark:bg-[#1E1E1E]">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between text-gray-700 dark:text-gray-300 space-y-4 md:space-y-0">
           {/* Copyright Section */}
           <div className="text-center text-lg">
