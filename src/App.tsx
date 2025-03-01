@@ -29,10 +29,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
+          <Route path='/startaproject' element={<StartProject />}   />
         </Route>
-
-        {/* StartProject route is handled separately to avoid conflicts */}
-        <Route path='/startaproject' element={<StartProject />} />
       </Routes>
     </BrowserRouter>
   );
