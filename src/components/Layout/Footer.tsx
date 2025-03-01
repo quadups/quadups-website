@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Social Media Links */}
           <div className="flex space-x-5">
             <Link
-              to="https://github.com/solutiontechnov0"
+              to="https://github.com/quadups"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 transform hover:scale-110"
