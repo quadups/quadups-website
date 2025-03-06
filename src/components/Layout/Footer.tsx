@@ -25,7 +25,7 @@ const Footer = () => {
 
           {/* Mobile Number */}
           <div className="text-center text-lg">
-            📞 <a href="tel:+2347012345678" className="hover:underline">+234 703 763 6323</a>
+            📞 <a href="tel:+2347037636323" className="hover:underline">+234 703 763 6323</a>
           </div>
 
           {/* Social Media Links */}

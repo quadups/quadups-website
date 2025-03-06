@@ -14,6 +14,7 @@ import { Logo } from "../ui/Logo";
 import { NavBar } from "../Layout/NavBar";
 import { Contact } from "../ContactPage.tsx/ContactPage";
 import Modal from "../ui/Modal";
+import { useNavigate } from "react-router-dom";
 
 const projectSchema = z.object({
   projectType: z.string().min(1, { message: "Please select a project type." }),
@@ -22,6 +23,7 @@ const projectSchema = z.object({
 });
 
 const StartProject = () => {
+  const navigate = useNavigate()
   const [isModalOpen, setModalOpen] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const { toast } = useToast();
@@ -77,6 +79,7 @@ const StartProject = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          <button onClick={()=> navigate(-1)} className="text-white text-2xl py-2 px-3 shadow-lg rounded-full bg-[#870A81] hover:bg-[#442042] m-2">&larr;</button>
           <Logo isServicePage={false} />
         </motion.div>
       </div>

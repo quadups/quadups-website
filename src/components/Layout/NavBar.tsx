@@ -50,6 +50,11 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
+    // Close sheet when the route changes
+    useEffect(() => {
+      setIsOpen(false);
+    }, [location.pathname, setIsOpen]);
+
   return (
     <motion.nav
       initial={{ backgroundColor: "rgba(20,0,33, .7)", boxShadow: "none" }}
@@ -130,7 +135,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       </motion.div>
 
       {/* MOBILE NAVIGATION */}
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <Sheet open={isOpen} onOpenChange={setIsOpen} >
         <SheetTrigger className="lg:hidden">
           <Menu className={`w-6 h-6 ${isServicesPage ? 'text-black' : 'text-white'}  `} />
         </SheetTrigger>
@@ -156,7 +161,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
             })}
 
             <motion.li initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
-              <button onClick={onContactClick} className="text-white text-base sm:text-lg font-semibold uppercase tracking-wider hover:opacity-80 transition-all duration-300">
+              <button onClick={()=>{ onContactClick(); setIsOpen(false)}} className="text-white text-base sm:text-lg font-semibold uppercase tracking-wider hover:opacity-80 transition-all duration-300">
                 Contact
               </button>
             </motion.li>
@@ -169,7 +174,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
             </motion.li>
 
             <motion.li initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.4 }} className="sm:hidden">
-              <Link to="startaproject" className="text-white text-base font-semibold uppercase tracking-wider hover:opacity-80 transition-all duration-300 bg-[#870a81] px-4 py-2 rounded-full block text-center">
+              <Link to="/startaproject" className="text-white text-base font-semibold uppercase tracking-wider hover:opacity-80 transition-all duration-300 bg-[#870a81] px-4 py-2 rounded-full block text-center">
                 Start a Project
               </Link>
             </motion.li>
