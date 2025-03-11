@@ -18,7 +18,7 @@ const Service = ({ title, details, icon: Icon }: ServiceDetailProps) => {
       className="relative border border-gray-300 rounded-lg p-6 bg-white shadow-md w-full dark:text-black dark:bg-[#2A2A2A]"
     >
       {/* Title */}
-      <div className="flex items-center font-semibold text-lg sm:text-xl">
+      <div className="flex items-center font-semibold text-lg sm:text-2xl">
         <motion.div whileHover={{ rotate: 10 }}>
           <Icon className="text-[#870A81]" size={24} />
         </motion.div>
@@ -34,7 +34,7 @@ const Service = ({ title, details, icon: Icon }: ServiceDetailProps) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
             viewport={{ once: true }}
-            className="flex items-center text-sm sm:text-base dark:text-white"
+            className="flex items-center text-md sm:text-base dark:text-white"
           >
             <CheckCircle className="text-[#870A81] mr-2" size={16} />
             <p>{detail}</p>

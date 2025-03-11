@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Animation variants for staggered effects
 const containerVariants = {
@@ -123,17 +124,19 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
+          >
+          <Link
+            to="/startaproject"
             className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
             Start a Web Project
-          </motion.a>
+          </Link>
+         </motion.span>
         </motion.div>
       </motion.section>
 
@@ -167,17 +170,20 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            
           >
+            <Link 
+            to="/startaproject"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            >
             Start a Mobile Development Project
-          </motion.a>
+            </Link>
+          </motion.span>
         </motion.div>
 
         {/* Image on Right */}
@@ -240,17 +246,18 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
-            Start a UI/UX Project
-          </motion.a>
+            <Link 
+            to="/startaproject"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            >Start a UI/UX Project</Link>
+            
+          </motion.span>
         </motion.div>
       </motion.section>
 
@@ -283,17 +290,19 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
+            <Link
+            to="/startaproject"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            >
             Start a Branding Project
-          </motion.a>
+            </Link>
+          </motion.span>
         </motion.div>
 
         {/* Image on Right */}
@@ -356,17 +365,19 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
           >
+            <Link 
+            to="/startaproject"
+             className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] h-[40px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center"
+            >
             Start Consultation
-          </motion.a>
+            </Link>
+          </motion.span>
         </motion.div>
       </motion.section>
 
@@ -400,17 +411,20 @@ const ServiceComponent = () => {
           </motion.p>
 
           {/* Call to Action Button */}
-          <motion.a
-            href="/startaproject"
-            target="_blank"
+          <motion.span
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center text-center"
           >
+            <Link
+            
+            to="/startaproject"
+            className="py-2 px-4 md:px-6 items-center mt-8 bg-[#870A81] w-full md:w-[400px] text-white font-semibold rounded-[20px] shadow-lg hover:bg-[#442042] flex justify-center text-center"
+            >
             Start Blockchain Project
-          </motion.a>
+            </Link>
+          </motion.span>
         </motion.div>
 
         {/* Image on Left */}

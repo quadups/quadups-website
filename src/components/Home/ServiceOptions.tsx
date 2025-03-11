@@ -56,7 +56,7 @@ const ServiceOptions = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize leading-snug dark:text-white">
               Explore unique software <br className="hidden sm:block" /> solutions
             </h1>
-            <p className="text-sm sm:text-base leading-relaxed mt-2 dark:text-white">
+            <p className="text-md sm:text-base leading-relaxed mt-2 dark:text-white">
               We build digital solutions that make businesses more visible and
               successful. From websites and mobile apps to user-friendly
               designs and branding, we help companies create a strong online

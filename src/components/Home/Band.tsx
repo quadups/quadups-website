@@ -19,7 +19,7 @@ export const Band = () => {
               'Web3 Integration'
             ].map((service) => {
               return <>
-                <li className="mx-16">{service} </li>
+                <li className="mx-16" key={service} >{service} </li>
                 <Asterisk />
 
               </>

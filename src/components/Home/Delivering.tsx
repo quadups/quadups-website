@@ -35,7 +35,7 @@ export const Delivering = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="writ-up text-left text-sm p-4 md:p-6 w-full md:w-5/6"
+                className="writ-up text-left sm:text-sm p-2 md:p-6 w-full md:w-5/6"
               >
                 We build digital solutions that make businesses more visible and successful. From websites and mobile apps to user-friendly designs and branding, we help companies create a strong online presence. Our goal is to turn ideas into real solutions that improve efficiency, connect with audiences, and drive growth in today’s digital world.
               </motion.div>
