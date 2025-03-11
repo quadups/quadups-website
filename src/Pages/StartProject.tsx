@@ -1,4 +1,4 @@
-import StartProject from '@/components/StartProject/StartProject'
+import StartProject from "../components/StartProject/StartProject.tsx"
 
 const StartProjectPage = () => {
   return (
