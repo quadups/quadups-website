@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import Footer from "./Footer"
 import { NavBar } from "./NavBar"
 import { useState } from "react"
@@ -7,14 +7,16 @@ import { Contact } from "../ContactPage.tsx/ContactPage"
 
 const AppLayout = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const location = useLocation();
+  const isStartProject = location.pathname === '/startaproject';
 
   return (
     <div className="min-h-screen bg-black">
-      <NavBar onContactClick={() => setModalOpen(true)} />
+      {!isStartProject && <NavBar onContactClick={() => setModalOpen(true)} />}
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {!isStartProject && <Footer />}
 
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <Contact onClose={() => setModalOpen(false)} />
