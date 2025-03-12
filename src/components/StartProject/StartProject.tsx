@@ -20,7 +20,7 @@ const projectSchema = z.object({
   projectType: z.string().min(1, { message: "Please select a project type." }),
   name: z.string().min(1, { message: "Please fill this field" }),
   email: z.string().email({ message: "Invalid email address." }),
-  description: z.string().min(10, { message: "Description must be at least 10 characters." }),
+  message: z.string().min(10, { message: "Description must be at least 10 characters." }),
   from_name: z.string().default("Quadups Ltd"), 
 });
 
@@ -37,7 +37,7 @@ const StartProject = () => {
       name: "",
       from_name: "Quadups Ltd",
       email: "",
-      description: "",
+      message: "",
     },
   });
 
@@ -174,7 +174,7 @@ const StartProject = () => {
         {/* Description */}
         <FormField
           control={form.control}
-          name="description"
+          name="message"
           render={({ field }) => (
             <FormItem>
               <FormControl>
