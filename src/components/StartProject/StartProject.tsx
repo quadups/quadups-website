@@ -18,8 +18,10 @@ import { useNavigate } from "react-router-dom";
 
 const projectSchema = z.object({
   projectType: z.string().min(1, { message: "Please select a project type." }),
+  name: z.string().min(1, { message: "Please fill this field" }),
   email: z.string().email({ message: "Invalid email address." }),
   description: z.string().min(10, { message: "Description must be at least 10 characters." }),
+  from_name: z.string().default("Quadups Ltd"), 
 });
 
 const StartProject = () => {
@@ -32,6 +34,8 @@ const StartProject = () => {
     resolver: zodResolver(projectSchema),
     defaultValues: {
       projectType: "",
+      name: "",
+      from_name: "Quadups Ltd",
       email: "",
       description: "",
     },
@@ -119,6 +123,35 @@ const StartProject = () => {
             </FormItem>
           )}
         />
+
+          {/* Name Field */}
+          <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <motion.div whileFocus={{ scale: 1.02 }}>
+                        <Input
+                          placeholder="Name"
+                          {...field}
+                          className="w-full md:p-5 p-7 md:m-0 mt-8 border rounded-lg border-none outline-none bg-[#D9D9D975] dark:bg-[#3A3A3A] placeholder:text-black dark:placeholder:text-gray-400 text-black dark:text-white"
+                        />
+                      </motion.div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+                  {/* hidden */}
+              <FormField
+                control={form.control}
+                name="from_name"
+                render={({ field }) => (
+                  <input type="hidden" {...field} value="Quadups Ltd" />
+                )}
+              />
 
         {/* Email */}
         <FormField

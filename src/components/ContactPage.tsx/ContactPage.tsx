@@ -30,6 +30,7 @@ const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  from_name: z.string().default("Quadups Ltd"), 
 });
 
 export const Contact = ({ onClose }: { onClose?: () => void }) => {
@@ -46,6 +47,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
       name: "",
       email: "",
       message: "",
+      from_name: "Quadups Ltd",
     },
   });
 
@@ -183,6 +185,14 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                     </FormControl>
                     <FormMessage />
                   </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="from_name"
+                render={({ field }) => (
+                  <input type="hidden" {...field} value="Quadups Ltd" />
                 )}
               />
 
