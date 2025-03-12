@@ -6,7 +6,7 @@
  * @last_modified 2025
  */
 
-import { BrowserRouter, Route, Routes,  } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import { Home } from './Pages/Home.tsx';
 import { About } from './Pages/About.tsx';
 import Services from './Pages/Services.tsx';
@@ -31,9 +31,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
-         
+          <Route path='/startaproject' element={<StartProject />} />
         </Route>
-        <Route path='/startaproject' element={<StartProject />} />
       </Routes>
     </BrowserRouter>
   );
