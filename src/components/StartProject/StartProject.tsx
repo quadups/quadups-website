@@ -17,7 +17,7 @@ import Modal from "../ui/Modal";
 import { useNavigate } from "react-router-dom";
 
 const projectSchema = z.object({
-  projectType: z.string().min(1, { message: "Please select a project type." }),
+  project_type: z.string().min(1, { message: "Please select a project type." }),
   name: z.string().min(1, { message: "Please fill this field" }),
   email: z.string().email({ message: "Invalid email address." }),
   message: z.string().min(10, { message: "Description must be at least 10 characters." }),
@@ -33,7 +33,7 @@ const StartProject = () => {
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
-      projectType: "",
+      project_type: "",
       name: "",
       from_name: "Quadups Ltd",
       email: "",
@@ -99,23 +99,23 @@ const StartProject = () => {
         {/* Project Type */}
         <FormField
           control={form.control}
-          name="projectType"
+          name="project_type"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Select onValueChange={field.onChange}>
+                <Select onValueChange={field.onChange} {...field}>
                   <SelectTrigger className="border-none outline-none md:p-5 p-7 md:m-0 mt-8 bg-[#D9D9D975] dark:bg-[#3A3A3A] text-black dark:text-white">
                     <SelectValue placeholder="Select Project Type" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#000] dark:bg-[#1A1A1A] text-white">
-                    <SelectItem value="ui-ux-design">UI/UX Design</SelectItem>
-                    <SelectItem value="web-app-development">Website Design & Development</SelectItem>
-                    <SelectItem value="software-consultations">Software Consultations</SelectItem>
-                    <SelectItem value="mobile-app-development">Mobile App Development</SelectItem>
-                    <SelectItem value="business-branding">Business Branding</SelectItem>
-                    <SelectItem value="smart-contract-development">Smart Contract Development</SelectItem>
-                    <SelectItem value="dapp-development">DApp Development</SelectItem>
-                    <SelectItem value="web3-integration">Web3 Integration</SelectItem>
+                    <SelectItem value="UI/UX design">UI/UX Design</SelectItem>
+                    <SelectItem value="web app development">Website Design & Development</SelectItem>
+                    <SelectItem value="software consultations">Software Consultations</SelectItem>
+                    <SelectItem value="mobile app development">Mobile App Development</SelectItem>
+                    <SelectItem value="business branding">Business Branding</SelectItem>
+                    <SelectItem value="smart contract development">Smart Contract Development</SelectItem>
+                    <SelectItem value="dapp development">DApp Development</SelectItem>
+                    <SelectItem value="web3 integration">Web3 Integration</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
