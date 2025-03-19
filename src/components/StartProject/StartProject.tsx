@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import { Logo } from "../ui/Logo";
 import { NavBar } from "../Layout/NavBar";
 import { Contact } from "../ContactPage.tsx/ContactPage";
 import Modal from "../ui/Modal";
@@ -85,7 +84,6 @@ const StartProject = () => {
             >
               &larr;
             </button>
-            <Logo isServicePage={false} />
           </motion.div>
         </div>
 

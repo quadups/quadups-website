@@ -13,7 +13,7 @@ interface LogoProps {
      to="/"
      className={`text-xl md:text-2xl font-extrabold tracking-wider  ${isServicePage ? "text-black" : "text-white"}`}
    >
-     Quadups
+     <img src="/logo/quadups-full-white.png" width={150} height={150}/>
    </Link>
   )
 }
