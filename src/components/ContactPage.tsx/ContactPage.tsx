@@ -1,7 +1,7 @@
 /**
  * @file Contact.tsx
  * @description Contact form component for submitting messages to the backend via email.
- * Utilizes EmailJS for email submission and Zod for form validation.
+ * Utilizes Formspree for email submission and Zod for form validation.
  * @author Quadups Dev Team
  * @last_modified 2025
  */
@@ -21,8 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { X } from "lucide-react";
 
 // Zod schema for form validation
@@ -30,16 +29,14 @@ const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-  from_name: z.string().default("Quadups Ltd"), 
 });
 
 export const Contact = ({ onClose }: { onClose?: () => void }) => {
-  const YOUR_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const YOUR_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const YOUR_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const FORM_ENDPOINT = "https://formspree.io/f/mldjgbjo"; // Replace with your Formspree endpoint
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -47,30 +44,24 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
       name: "",
       email: "",
       message: "",
-      from_name: "Quadups Ltd",
     },
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: z.infer<typeof contactSchema>) => {
+    setLoading(true);
     try {
-      emailjs
-        .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formRef.current || "", YOUR_PUBLIC_KEY)
-        .then(
-          () => {
-            toast({
-              title: "Success",
-              description: "Email sent successfully!",
-            });
-            form.reset();
-          },
-          (error) => {
-            toast({
-              variant: "destructive",
-              title: "Error",
-              description: `Failed to send email: ${error.text}`,
-            });
-          }
-        );
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        toast({ title: "Success", description: "Message sent successfully!" });
+        form.reset();
+        setTimeout(() => onClose && onClose(), 1000); // Auto-close modal after success
+      } else {
+        toast({ variant: "destructive", title: "Error", description: "Failed to send message." });
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -78,6 +69,8 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
         title: "Unexpected Error",
         description: "An unexpected error occurred. Please try again later.",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -188,14 +181,6 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="from_name"
-                render={({ field }) => (
-                  <input type="hidden" {...field} value="Quadups Ltd" />
-                )}
-              />
-
               {/* Submit Button */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -206,7 +191,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                   type="submit"
                   className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[10px] mx-auto bg-[#870A81] dark:bg-[#620664] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
                 >
-                  Contact Us
+                  {loading ? "Sending..." : "Contact Us"}
                 </Button>
               </motion.div>
             </motion.form>
