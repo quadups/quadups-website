@@ -57,10 +57,10 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
       className="fixed top-0 z-50 w-full px-4 sm:px-6 md:px-8 lg:px-40 py-10 sm:py-4 flex items-center justify-between"
     >
       <Logo isServicePage={isServicesPage} />
-      
+
       <ul className="hidden lg:flex items-center space-x-6 xl:space-x-14">
-        {["About", "Services"].map((item, index) => {
-          const itemPath = `/${item.toLowerCase()}`;
+        {["About Us", "Services"].map((item, index) => {
+          const itemPath = item === "About Us" ? "/about" : `/${item.toLowerCase()}`;
           const isActive = location.pathname === itemPath;
 
           return (
@@ -68,8 +68,8 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
               <Link
                 to={itemPath}
                 className={`relative text-sm md:text-base tracking-wider capitalize whitespace-nowrap transition-all duration-300 
-                  ${isServicesPage ? "text-black" : "text-white"} 
-                  ${isActive ? "font-bold text-[#870a81]" : "opacity-80 hover:opacity-100"}`}
+            ${isServicesPage ? "text-black" : "text-white"} 
+            ${isActive ? "font-bold text-[#870a81]" : "opacity-80 hover:opacity-100"}`}
               >
                 {item}
               </Link>
@@ -86,6 +86,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
           </button>
         </motion.li>
       </ul>
+
 
       <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }} className="hidden sm:block">
         <Link

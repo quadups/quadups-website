@@ -30,7 +30,7 @@ const Footer = () => {
       <HomeContact onContactClick={() => setModalOpen(true)} />
 
       {/* Footer Section */}
-      <footer className="border-t border-gray-300 p-6 dark:bg-[#1E1E1E]">
+      <footer className="border-t border-gray-300 py-10 p-6 dark:bg-[#1E1E1E]"> 
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
           {/* Logo */}
           <div className="flex justify-center md:justify-start items-center space-x-2">

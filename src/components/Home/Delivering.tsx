@@ -10,11 +10,11 @@ export const Delivering = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl lg:text-3xl font-[600] leading-relaxed md:leading-[9rem]"
+            className="text-3xl lg:text-3xl font-normal leading-relaxed md:leading-[9rem]"
           >
-            We create <span className="bg-[rgb(135,10,129)] text-white px-3 py-1 rounded-full">digital Solutions</span> that <br />
+            We create <span className="font-extrabold">digital Solutions</span> that <br />
             <div className="mt-3"></div>
-            help <span className="bg-[rgb(135,10,129)] text-white px-3 py-1 rounded-full">brands</span> and <span className="bg-[rgb(135,10,129)] text-white px-3 py-1 rounded-full">businesses</span> stand out and grow
+            help <span className="font-extrabold">brands</span> and <span className="font-extrabold">businesses</span> stand out and grow
           </motion.h1>
 
           {/* text sect */}

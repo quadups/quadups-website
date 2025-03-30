@@ -63,29 +63,40 @@ const StartProject = () => {
     <>
       <div className="flex flex-col md:flex-row min-h-[calc(100vh-80px)] h-screen">
         {/* Left: Mobile View Navbar */}
-        <div className="md:hidden block w-full md:w-2/4">
+        <div className="md:hidden block w-full md:w-2/4 relative">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
             <NavBar onContactClick={() => setModalOpen(true)} />
           </motion.div>
+          <div className="absolute inset-0 flex justify-center items-center">
+            <h2 className="text-white text-xl font-bold text-center px-4">
+              Let’s bring your visions into reality
+            </h2>
+          </div>
         </div>
 
         {/* Left: Desktop View */}
-        <div className="hidden md:flex w-full md:w-2/4 justify-center items-center h-full">
+        <div className="hidden md:flex w-full md:w-2/4 justify-center items-center h-full relative">
           <motion.div
             style={{ backgroundImage: `url(/homeBg.jpg )` }}
-            className="w-full h-full shadow-lg bg-cover bg-no-repeat py-6 px-12"
+            className="w-full h-full shadow-lg bg-cover bg-no-repeat py-6 px-12 flex flex-col items-center justify-center text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <button
-              onClick={() => navigate(-1)}
-              className="text-white text-2xl py-2 px-3 shadow-lg rounded-full bg-[#870A81] hover:bg-[#442042] m-2"
-            >
-              &larr;
+            <button onClick={() => navigate(-1)} className="absolute top-8 left-8">
+              <img
+                src="/logo/small-logo-white.png"
+                alt="Company Logo"
+                className="w-10 h-10"
+              />
             </button>
+            <h2 className="text-white text-[30px] font-bold px-6">
+              Let’s bring your visions into <br/> reality
+            </h2>
           </motion.div>
         </div>
+
+
 
         {/* Right: Form */}
         <div className="w-full h-screen md:w-3/4 bg-white dark:bg-[#2E2E2E] md:p-6 p-2 rounded-lg shadow-lg flex flex-col justify-center items-center">
@@ -106,7 +117,7 @@ const StartProject = () => {
                           <SelectTrigger className="border-none outline-none md:p-5 p-7 md:m-0 mt-8 bg-[#D9D9D975] dark:bg-[#3A3A3A] text-black dark:text-white">
                             <SelectValue placeholder="Select Project Type" />
                           </SelectTrigger>
-                          <SelectContent className="bg-[#000] dark:bg-[#1A1A1A] text-white">
+                          <SelectContent className="bg-white dark:bg-[#1E1E1E] text-black dark:text-white">
                             <SelectItem value="UI/UX design">UI/UX Design</SelectItem>
                             <SelectItem value="web app development">Website Design & Development</SelectItem>
                             <SelectItem value="software consultations">Software Consultations</SelectItem>
@@ -116,6 +127,7 @@ const StartProject = () => {
                             <SelectItem value="dapp development">DApp Development</SelectItem>
                             <SelectItem value="web3 integration">Web3 Integration</SelectItem>
                           </SelectContent>
+
                         </Select>
                       </FormControl>
                       <FormMessage />
@@ -177,11 +189,13 @@ const StartProject = () => {
                     </FormItem>
                   )}
                 />
+                {/* Submmit btn */}
+                <div className="flex justify-center">
+                  <Button type="submit" disabled={state.submitting} className="bg-[#870A81] text-white py-3 px-12 rounded-lg">
+                    {state.submitting ? "Sending..." : "Send Project Enquiry"}
+                  </Button>
+                </div>
 
-                {/* Submit Button */}
-                <Button type="submit" disabled={state.submitting} className="bg-[#870A81] text-white py-3 px-12 rounded-lg">
-                  {state.submitting ? "Sending..." : "Send Project Enquiry"}
-                </Button>
               </form>
             </Form>
           </div>

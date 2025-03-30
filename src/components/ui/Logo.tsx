@@ -21,12 +21,12 @@ export const Logo = ({ isServicePage }: LogoProps) => {
       <img
         src={
           isServicePage
-            ? "/logo/quadups-full-black-transparent.png" // Always use black for service page
-            : "/logo/quadups-full-white.png"
+            ? "/logo/quadups-black-small-transparent.png" // Always use black for service page
+            : "/logo/small-logo-white.png"
         }
         alt="Quadups Logo"
-        width={150}
-        height={150}
+        width={35}
+        height={35}
       />
     </Link>
   );

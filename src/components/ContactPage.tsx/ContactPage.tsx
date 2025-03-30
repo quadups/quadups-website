@@ -189,7 +189,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
               >
                 <Button
                   type="submit"
-                  className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[10px] mx-auto bg-[#870A81] dark:bg-[#620664] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
+                  className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[20px] mx-auto bg-[#870A81] dark:bg-[#620664] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
                 >
                   {loading ? "Sending..." : "Contact Us"}
                 </Button>
