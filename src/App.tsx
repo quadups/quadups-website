@@ -1,4 +1,3 @@
-
 /**
  * @file App.tsx
  * @description Main entry point for the application, handles routing and conditional layout rendering
@@ -6,12 +5,14 @@
  * @last_modified 2025
  */
 
-import { BrowserRouter, Route, Routes, } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home.tsx';
 import { About } from './Pages/About.tsx';
 import Services from './Pages/Services.tsx';
 import AppLayout from './components/Layout/AppLayout.tsx';
 import StartProject from './Pages/StartProject.tsx';
+import LoadingScreen from './components/ui/LoadingScreen.tsx';
+import { useEffect, useState } from 'react';
 
 /**
  * App component, serves as the root of the application
@@ -21,6 +22,21 @@ import StartProject from './Pages/StartProject.tsx';
  * @returns {JSX.Element} Rendered App component with routing logic
  */
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Show loading screen for 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
       {/* Main routing structure for the application */}

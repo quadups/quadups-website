@@ -1,13 +1,13 @@
-# TechNovo Official Website  
+# Quadups Official Website  
 
-Welcome to the official TechNovo website repository. TechNovo is a leading-edge technology solutions provider dedicated to delivering innovative software services tailored to meet the diverse needs of our clients. This repository serves as the foundation for our online presence, showcasing our capabilities, offerings, and vision.  
+Welcome to the official Quadups website repository. Quadups is a leading-edge technology solutions provider dedicated to delivering innovative software services tailored to meet the diverse needs of our clients. This repository serves as the foundation for our online presence, showcasing our capabilities, offerings, and vision.  
 
-## About TechNovo  
+## About Quadups  
 
-At TechNovo, we are passionate about leveraging technology to transform businesses and solve complex challenges. We specialize in a wide range of software services designed to empower organizations, enhance efficiency, and drive sustainable growth. From custom software development to cloud-based solutions, our team of experts is committed to excellence in every project.  
+At Quadups, we are passionate about leveraging technology to transform businesses and solve complex challenges. We specialize in a wide range of software services designed to empower organizations, enhance efficiency, and drive sustainable growth. From custom software development to cloud-based solutions, our team of experts is committed to excellence in every project.  
 
 ### Our Services  
-TechNovo offers a comprehensive suite of services, including:  
+Quadups offers a comprehensive suite of services, including:  
 
 - **Custom Software Development**: Tailored applications built to your unique specifications.  
 - **Web Development**: Responsive, SEO-optimized websites that captivate and engage audiences.  
@@ -20,7 +20,7 @@ TechNovo offers a comprehensive suite of services, including:
 
 ## Tech Stack  
 
-The TechNovo website leverages modern tools and frameworks to ensure speed, scalability, and performance:  
+The Quadups website leverages modern tools and frameworks to ensure speed, scalability, and performance:  
 
 - **Frontend**: React, TypeScript, NextJS and Vite for a blazing-fast and dynamic user interface.  
 - **Backend**: Node.js, Express, NestJS and Prisma for secure and scalable backend operations.  
@@ -37,11 +37,11 @@ The TechNovo website leverages modern tools and frameworks to ensure speed, scal
 
 ## Installation & Setup  
 
-To set up the TechNovo website locally:  
+To set up the Quadups website locally:  
 
 1. **Clone the repository**:  
    ```bash[
-   git clone  https://github.com/Technovo-Solutions/technovo-website
+   git clone  https://github.com/quadups/quadups-website
    cd website
    ```  
 
@@ -66,12 +66,12 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 For inquiries, support, or feedback, feel free to reach out to us:  
 
-- **Website**: [technovo.com](https://technovo.com)  
-- **Email**: support@technovo.com  
+- **Website**: [quadups.com](https://quadupsltd.com)  
+- **Email**: support@quadups.com  
 - **Phone**: +1 (555) 123-4567  
 
 ---
 
-By maintaining a commitment to quality, innovation, and client satisfaction, TechNovo stands at the forefront of the technology industry. Explore, collaborate, and build with us!  
+By maintaining a commitment to quality, innovation, and client satisfaction, Quadups stands at the forefront of the technology industry. Explore, collaborate, and build with us!  
 
 ---
