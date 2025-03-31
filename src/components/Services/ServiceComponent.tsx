@@ -268,7 +268,7 @@ const ServiceComponent = () => {
 
       {/* Section 5 */}
       <motion.section
-        className="flex flex-col sm:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 sm:p-10 md:p-12 mb-8"
+        className="flex flex-col sm:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 sm:p-10 md:p-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
