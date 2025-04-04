@@ -18,7 +18,7 @@ const ServiceOptions = () => {
     {
       title: 'Software Consultation',
       details: ['Technical feasibility analysis', 'project planning and dev.', 'Custom software design.'],
-      icon: Palette
+      icon: MailQuestion
     },
     {
       title: 'Mobile App Development',
