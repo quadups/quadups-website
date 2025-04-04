@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code, Smartphone, Palette } from 'lucide-react';
+import { ArrowUpRight, Code, Smartphone, Palette, MailQuestion } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Service from '../Services/ServiceBox';
 import { motion } from 'framer-motion';
@@ -16,6 +16,11 @@ const ServiceOptions = () => {
       icon: Code
     },
     {
+      title: 'Software Consultation',
+      details: ['Technical feasibility analysis', 'project planning and dev.', 'Custom software design.'],
+      icon: Palette
+    },
+    {
       title: 'Mobile App Development',
       details: ['Cross-platform mobile apps.', 'Intuitive user interfaces.', 'Seamless app performance.'],
       icon: Smartphone
@@ -24,7 +29,13 @@ const ServiceOptions = () => {
       title: 'UI/UX Design',
       details: ['Intuitive user interfaces.', 'User research insights.', 'Prototyping and wireframing.'],
       icon: Palette
-    }
+    },
+    
+    // {
+    //   title: 'Software Consultation',
+    //   details: ['Technical analysis and strategy', 'Development roadmaps and project planning', 'Custom software design'],
+    //   icon: MailQuestion
+    // }
   ];
 
   return (
@@ -56,9 +67,10 @@ const ServiceOptions = () => {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.slice(1).map((service, index) => (
+          {/* Services Grid- desktop view */}
+          
+          <div className="hidden lg:grid sm:grid-cols-2 gap-6 flex-nowrap">
+            {services.slice(2).map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -70,16 +82,34 @@ const ServiceOptions = () => {
               </motion.div>
             ))}
           </div>
+{/* Services Grid- mobile view */}
+        <div className="overflow-x-auto lg:overflow-x-hidden">
+          <div className="flex lg:hidden sm:grid-cols-2 gap-6 flex-nowrap">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <Service title={service.title} details={service.details} icon={service.icon} />
+              </motion.div>
+            ))}
+          </div>
+
+          </div>
         </motion.div>
 
         {/* Sidebar Service Box (First Service) */}
         <motion.div
-          className="lg:w-1/3 w-full"
+          className="lg:w-1/3 w-full hidden lg:block"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
           <Service title={services[0].title} details={services[0].details} icon={services[0].icon} />
+          <Service title={services[1].title} details={services[1].details} icon={services[1].icon} />
         </motion.div>
       </div>
 

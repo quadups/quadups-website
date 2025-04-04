@@ -25,7 +25,7 @@ const ServiceComponent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-full mx-auto py-16 bg-white relative pt-56 px-4 sm:px-8 md:px-16 lg:px-32 dark:bg-[#1E1E1E]"
+        className="w-full mx-auto py-16 bg-white relative pt-36 sm:pt-56 px-4 sm:px-8 md:px-16 lg:px-32 dark:bg-[#1E1E1E]"
       >
         <motion.div
           className="mx-auto flex flex-col sm:flex-row justify-between items-center gap-8 md:gap-12"
@@ -70,7 +70,7 @@ const ServiceComponent = () => {
 
       {/* Web Development Section */}
       <motion.section
-        className="flex flex-col sm:flex-row items-center justify-between bg-[#DADADA] p-6 sm:p-8 md:p-12 lg:p-16 gap-8 md:gap-12 dark:bg-[#2E2E2E]"
+        className="flex flex-col-reverse sm:flex-row items-center justify-between bg-[#DADADA] p-6 sm:p-8 md:p-12 lg:p-16 gap-8 md:gap-12 dark:bg-[#2E2E2E]"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -162,7 +162,7 @@ const ServiceComponent = () => {
 
       {/* Section 3 - UI/UX Design */}
       <motion.section
-        className="flex flex-col sm:flex-row items-center justify-between bg-[#DADADA] p-6 sm:p-8 md:p-12 lg:p-16 gap-8 md:gap-12 dark:bg-[#2E2E2E]"
+        className="flex flex-col-reverse sm:flex-row items-center justify-between bg-[#DADADA] p-6 sm:p-8 md:p-12 lg:p-16 gap-8 md:gap-12 dark:bg-[#2E2E2E]"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -268,7 +268,7 @@ const ServiceComponent = () => {
 
       {/* Section 5 */}
       <motion.section
-        className="flex flex-col sm:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 sm:p-10 md:p-12"
+        className="flex flex-col-reverse sm:flex-row items-center justify-between bg-[#DADADA] dark:bg-[#2E2E2E] p-8 sm:p-10 md:p-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

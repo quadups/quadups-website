@@ -47,7 +47,7 @@ export const Hero = () => {
             <h1 className="font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide leading-tight">
               {headlines[index].title}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-4 sm:mt-6 tracking-wide px-2 sm:px-4 max-w-[95%] sm:max-w-[90%] md:max-w-[80%]">
+            <p className="text-base sm:text-md md:text-lg lg:text-md mt-4 sm:mt-2 tracking-wide px-2 sm:px-4 max-w-[95%] sm:max-w-[90%] md:max-w-[80%]">
               {headlines[index].subtitle}
             </p>
           </motion.div>

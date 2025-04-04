@@ -15,10 +15,10 @@ const Service = ({ title, details, icon: Icon }: ServiceDetailProps) => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       whileHover={{ scale: 1.05 }}
       viewport={{ once: true }}
-      className="relative border border-gray-300 rounded-lg p-6 bg-white shadow-md w-full dark:text-black dark:bg-[#2A2A2A]"
+      className="relative border border-gray-300 lg:w-full w-[18rem]  xl:h-48 lg:h-64 h-48 rounded-lg md:p-6 p-3 mt-6 bg-white shadow-md dark:text-black dark:bg-[#2A2A2A]"
     >
       {/* Title */}
-      <div className="flex items-center font-semibold text-lg sm:text-2xl">
+      <div className="flex items-center font-semibold text-md sm:text-lg">
         <motion.div whileHover={{ rotate: 10 }}>
           <Icon className="text-[#870A81]" size={24} />
         </motion.div>

@@ -75,7 +75,7 @@ const StartProject = () => {
         </div>
 
         {/* Left: Desktop View */}
-        <div className="hidden md:flex w-full md:w-2/4 justify-center items-center h-full relative">
+        <div className="hidden md:flex w-full md:w-3/6 justify-center items-center h-full relative">
           <motion.div
             style={{ backgroundImage: `url(/homeBg.jpg )` }}
             className="w-full h-full shadow-lg bg-cover bg-no-repeat py-6 px-12 flex flex-col items-center justify-center text-center"
@@ -90,7 +90,7 @@ const StartProject = () => {
                 className="w-10 h-10"
               />
             </button>
-            <h2 className="text-white text-[30px] font-bold px-6">
+            <h2 className="text-white text-[27px] font-bold px-6">
               Let’s bring your visions into <br/> reality
             </h2>
           </motion.div>
@@ -99,7 +99,7 @@ const StartProject = () => {
 
 
         {/* Right: Form */}
-        <div className="w-full h-screen md:w-3/4 bg-white dark:bg-[#2E2E2E] md:p-6 p-2 rounded-lg shadow-lg flex flex-col justify-center items-center">
+        <div className="w-full h-screen md:w-3/4 bg-white dark:bg-[#2E2E2E] md:p-6 p-2 shadow-lg flex flex-col justify-center items-center">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center md:hidden">
             Let’s bring your vision into reality
           </h2>
