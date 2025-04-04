@@ -14,7 +14,7 @@ export const Mission = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="title capitalize text-3xl font-semibold flex items-end text-black dark:text-white mt-6 sm:mt-0 pb-5 sm:pb-0"
+          className="title capitalize text-3xl pl-6 lg:pl-0 font-semibold flex items-end text-black dark:text-white mt-6 sm:mt-0 pb-5 sm:pb-0"
         >
           our mission
         </motion.h1>
