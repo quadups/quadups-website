@@ -1,29 +1,44 @@
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface LogoProps {
   isServicePage: boolean;
 }
 
 export const Logo = ({ isServicePage }: LogoProps) => {
-  // const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // useEffect(() => {
-  //   setIsDarkMode(document.documentElement.classList.contains("dark"));
-  // }, []);
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDarkMode();
+
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const logoSrc = isServicePage
+    ? isDarkMode
+      ? "/logo/small-logo-white.png"
+      : "/logo/quadups-black-small-transparent.png"
+    : "/logo/small-logo-white.png";
 
   return (
     <Link
       to="/"
-      className={`text-xl md:text-2xl font-extrabold tracking-wider ${isServicePage ? "text-black" : "text-white"
-        }`}
+      className={`text-xl md:text-2xl font-extrabold tracking-wider ${
+        isServicePage ? (isDarkMode ? "text-white" : "text-black") : "text-white"
+      }`}
     >
       <img
-        src={
-          isServicePage
-            ? "/logo/quadups-black-small-transparent.png" // Always use black for service page
-            : "/logo/small-logo-white.png"
-        }
+        src={logoSrc}
         alt="Quadups Logo"
         width={35}
         height={35}

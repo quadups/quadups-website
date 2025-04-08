@@ -1,109 +1,124 @@
 import { Link } from "react-router-dom";
-import HomeContact from "./HomeContact";
-import { FaGithub } from "react-icons/fa";
-import { FaXTwitter, FaThreads } from "react-icons/fa6";
-import { BsInstagram, BsSun, BsMoon } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import {
+  FaGithub,
+  FaFacebookF,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import {
+  FaXTwitter,
+  FaThreads,
+} from "react-icons/fa6";
+import {
+  BsInstagram,
+  BsSun,
+  BsMoon,
+} from "react-icons/bs";
+
+import HomeContact from "./HomeContact";
 import Modal from "../ui/Modal";
 import { Contact } from "../ContactPage.tsx/ContactPage";
 import { FooterLogo } from "../ui/FooterLogo";
 
+const socialLinks = [
+  {
+    icon: <FaGithub />,
+    url: "https://github.com/quadups",
+    color: "text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white",
+  },
+  {
+    icon: <FaXTwitter />,
+    url: "https://twitter.com/QuadupsLtd?t=gjOcmXOa4Sy7jUSfLbkLsw&s=08",
+    color: "text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white",
+  },
+  {
+    icon: <FaThreads />,
+    url: "https://threads.net/@quadups",
+    color: "text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white",
+  },
+  {
+    icon: <BsInstagram />,
+    url: "https://www.instagram.com/quadups?igsh=eDNhZHBqMWFjYmNs",
+    color: "text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300",
+  },
+  {
+    icon: <FaFacebookF />,
+    url: "https://web.facebook.com/profile.php?id=61574737907803",
+    color: "text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300",
+  },
+  {
+    icon: <FaLinkedinIn />,
+    url: "https://www.linkedin.com/company/quadups",
+    color: "text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300",
+  },
+];
+
 const Footer = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isDarkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const [isDarkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
 
   useEffect(() => {
+    const root = document.documentElement;
     if (isDarkMode) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);
 
   return (
-    <div className="bg-white dark:bg-[#1E1E1E]">
-      {/* Contact Section */}
+    <div className="bg-white dark:bg-[#1E1E1E] text-gray-700 dark:text-gray-300">
       <HomeContact onContactClick={() => setModalOpen(true)} />
 
-      {/* Footer Section */}
-      <footer className="border-t border-gray-300 py-10 p-6 dark:bg-[#1E1E1E]"> 
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
+      <footer className="border-t border-gray-300 py-10 px-6">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Logo */}
-          <div className="flex justify-center md:justify-start items-center space-x-2">
+          <div className="flex justify-center md:justify-start items-center">
             <FooterLogo />
           </div>
 
-          {/* Copyright Section */}
-          <div className="text-center md:text-left text-sm md:text-lg text-gray-700 dark:text-gray-300">
-            &copy; Quadups Ltd. {new Date().getFullYear()}
+          {/* Contact Info & Copyright */}
+          <div className="space-y-3">
+            <p>&copy; Quadups Ltd. {new Date().getFullYear()}</p>
+            <p>
+              📞{" "}
+              <a href="tel:+2347064603807" className="hover:underline">
+                +234 706 460 3807
+              </a>
+            </p>
           </div>
 
-          {/* Mobile Number */}
-          <div className="text-center md:text-left text-sm md:text-lg text-gray-700 dark:text-gray-300">
-            📞{" "}
-            <a
-              href="tel:+2347064603807"
-              className="hover:underline"
-            >
-              +234 706 460 3807
-            </a>
-          </div>
+          {/* Social + Dark Mode Toggle */}
+          <div className="flex flex-col gap-4 items-center md:items-end">
+            <div className="flex space-x-4 text-2xl">
+              {socialLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-transform duration-300 hover:scale-110 ${link.color}`}
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
 
-          {/* Social Media Links */}
-          <div className="flex justify-center md:justify-start space-x-4 text-2xl">
-            <Link
-              to="https://github.com/quadups"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-300 transform hover:scale-110"
-            >
-              <FaGithub className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white" />
-            </Link>
-            <Link
-              to="https://twitter.com/QuadupsLtd?t=gjOcmXOa4Sy7jUSfLbkLsw&s=08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-300 transform hover:scale-110"
-            >
-              <FaXTwitter className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white" />
-            </Link>
-            <Link
-              to="https://threads.net/@quadups"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-300 transform hover:scale-110"
-            >
-              <FaThreads className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white" />
-            </Link>
-            <Link
-              to="https://www.instagram.com/quadups?igsh=eDNhZHBqMWFjYmNs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-300 transform hover:scale-110"
-            >
-              <BsInstagram className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300" />
-            </Link>
-          </div>
-
-          {/* Dark Mode Toggle Button */}
-          <div className="flex justify-center md:justify-start">
             <button
               onClick={() => setDarkMode(!isDarkMode)}
-              className="flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full transition-transform duration-300 hover:scale-105"
             >
               {isDarkMode ? (
                 <>
                   <BsSun className="text-yellow-500 text-xl" />
-                  <span className="text-sm dark:text-gray-300">Light Mode</span>
+                  <span>Light Mode</span>
                 </>
               ) : (
                 <>
                   <BsMoon className="text-gray-800 dark:text-white text-xl" />
-                  <span className="text-sm dark:text-gray-300">Dark Mode</span>
+                  <span>Dark Mode</span>
                 </>
               )}
             </button>

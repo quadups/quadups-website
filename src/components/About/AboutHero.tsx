@@ -7,7 +7,7 @@ const AboutHero = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full bg-cover bg-center relative min-h-[80vh] md:min-h-screen flex items-center justify-center flex-col px-6 sm:px-12"
+        className="w-full bg-cover bg-center relative min-h-[100vh] md:min-h-[120vh] flex items-center justify-center flex-col px-6 sm:px-12"
         style={{ backgroundImage: `url('/colleagues-working.jpg')` }}
       >
         {/* Overlay */}
