@@ -52,14 +52,21 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         fixed top-0 z-50 w-full px-4 sm:px-6 md:px-8 lg:px-40 
         py-10 sm:py-4 flex items-center justify-between
         transition-all duration-300
-        ${isServicesPage ? "bg-white dark:bg-[#1E1E1E]" : scrolled ? "bg-[#1D0E32] bg-opacity-90 z-20" : "bg-transparent"}
+        ${
+          isServicesPage
+            ? "bg-white dark:bg-[#1E1E1E]"
+            : scrolled
+            ? "bg-[#1D0E32] bg-opacity-90 z-20"
+            : "bg-transparent"
+        }
       `}
     >
       <Logo isServicePage={isServicesPage} />
 
       <ul className="hidden lg:flex items-center space-x-6 xl:space-x-14">
-        {["About Us", "Services"].map((item, index) => {
-          const itemPath = item === "About Us" ? "/about" : `/${item.toLowerCase()}`;
+        {["About us", "Services"].map((item, index) => {
+          const itemPath =
+            item === "About us" ? "/about" : `/${item.toLowerCase()}`;
           const isActive = location.pathname === itemPath;
 
           return (
@@ -70,9 +77,15 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
             >
               <Link
                 to={itemPath}
-                className={`relative text-sm md:text-base tracking-wider capitalize whitespace-nowrap transition-all duration-300 
-                  ${isServicesPage ? "text-black dark:text-white" : "text-white"} 
-                  ${isActive ? "font-bold text-[#870a81]" : "opacity-80 hover:opacity-100"}
+                className={`relative md:text-[18px] text-base font-medium tracking-wider whitespace-nowrap transition-all duration-300 
+                  ${
+                    isServicesPage ? "text-black dark:text-white" : "text-white"
+                  } 
+                  ${
+                    isActive
+                      ? "font-bold text-[#870a81]"
+                      : "opacity-80 hover:opacity-100"
+                  }
                 `}
               >
                 {item}
@@ -81,10 +94,13 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
           );
         })}
 
-        <motion.li whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }}>
+        <motion.li
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 200 }}
+        >
           <button
             onClick={onContactClick}
-            className={`text-sm md:text-base tracking-wider whitespace-nowrap transition-all opacity-80 hover:opacity-100 duration-300 
+            className={`relative md:text-[18px] text-base font-medium tracking-wider capitalize whitespace-nowrap transition-all duration-300
               ${isServicesPage ? "text-black dark:text-white" : "text-white"}
             `}
           >
@@ -93,24 +109,35 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
         </motion.li>
       </ul>
 
-      <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }} className="hidden sm:block">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="hidden sm:block"
+      >
         <Link
           to="/startaproject"
-          className="text-white text-sm md:text-base tracking-wider bg-[#870a81] px-4 sm:px-5 py-2 rounded-full shadow-md transition-all duration-300 hover:bg-[#9c1396] whitespace-nowrap"
+          className="text-white text-sm md:text-base bg-[#870a81] px-5 py-3.5 rounded-full shadow-md transition-all duration-300 hover:bg-[#9c1396] whitespace-nowrap font-medium"
         >
-          Start a Project
+          Start a project
         </Link>
       </motion.div>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="lg:hidden">
-          <Menu className={`w-6 h-6 ${isServicesPage ? "text-black dark:text-white" : "text-white"}`} />
+          <Menu
+            className={`w-6 h-6 ${
+              isServicesPage ? "text-black dark:text-white" : "text-white"
+            }`}
+          />
         </SheetTrigger>
 
-        <SheetContent side="right" className="w-[80vw] sm:w-[300px] bg-gray-900">
+        <SheetContent
+          side="right"
+          className="w-[80vw] sm:w-[300px] bg-gray-900"
+        >
           <SheetHeader />
           <ul className="flex flex-col space-y-6 p-4 sm:p-6 mt-8">
-            {["About", "Services"].map((item, index) => {
+            {["About us", "Services"].map((item, index) => {
               const itemPath = `/${item.toLowerCase()}`;
               const isActive = location.pathname === itemPath;
 
@@ -157,9 +184,9 @@ export const NavBar: React.FC<NavBarProps> = ({ onContactClick }) => {
             >
               <Link
                 to="/startaproject"
-                className="text-white text-base font-semibold tracking-wider hover:opacity-80 transition-all duration-300 bg-[#870a81] px-4 py-2 rounded-full block text-center"
+                className="text-white text-base font-semibold tracking-wider hover:opacity-80 transition-all duration-300 bg-[#870a81] px-4 py-10 rounded-full block text-center"
               >
-                Start a Project
+                Start a project
               </Link>
             </motion.li>
           </ul>
