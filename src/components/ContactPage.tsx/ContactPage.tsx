@@ -40,7 +40,9 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
   
   // Add this function to handle Calendly
   const openCalendly = () => {
-    window.open('https://calendly.com/quadupsltd/30min', '_blank');
+    // Link to Calendly booking page
+    const calendlyLink = 'https://calendly.com/quadupsltd/30min';
+    window.open(calendlyLink, '_blank' );
   };
 
   const form = useForm<z.infer<typeof contactSchema>>({
