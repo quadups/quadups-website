@@ -37,6 +37,11 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  
+  // Add this function to handle Calendly
+  const openCalendly = () => {
+    window.open('https://calendly.com/quadupsltd/30min', '_blank');
+  };
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -88,7 +93,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative w-full max-w-[885px] min-h-[400px] md:h-[558px] rounded-lg bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg"
+          className="relative w-full max-w-[885px] min-h-[400px] md:min-h-[558px] rounded-lg bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg overflow-y-auto"
         >
           {/* Close Button */}
           <motion.button
@@ -100,25 +105,44 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
             <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100" />
           </motion.button>
 
-          {/* Heading */}
+          {/* Header */}
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white leading-tight mb-4 sm:mb-6 md:mb-[36px] mt-6 sm:mt-8 md:mt-10"
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 sm:mb-6"
           >
-            We are happy to hear from you
+            Get in Touch
           </motion.h2>
+
+          {/* Calendly booking option */}
+          <div className="mb-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+              Prefer to schedule a call? 
+              <button
+                onClick={openCalendly}
+                className="text-[#870a81] hover:text-[#9c1396] underline ml-1 transition-colors duration-200"
+              >
+                Book a meeting with us
+              </button>
+            </p>
+            
+            <div className="flex items-center my-6">
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
+              <span className="px-4 text-gray-500 dark:text-gray-400 text-xs">OR SEND A MESSAGE</span>
+              <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
+            </div>
+          </div>
 
           {/* Form */}
           <Form {...form}>
             <motion.form
               ref={formRef}
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4 sm:space-y-5 md:space-y-7"
+              className="space-y-4 sm:space-y-5 md:space-y-6 max-w-md mx-auto pb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
             >
               {/* Name Field */}
               <FormField
@@ -131,11 +155,11 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                         <Input
                           placeholder="Name"
                           {...field}
-                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full h-[50px] focus:ring-2 focus:ring-[#870a81] focus:border-transparent transition-all"
                         />
                       </motion.div>
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-sm mt-1" />
                   </FormItem>
                 )}
               />
@@ -150,12 +174,13 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                       <motion.div whileFocus={{ scale: 1.02 }}>
                         <Input
                           placeholder="Email"
+                          type="email"
                           {...field}
-                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[45px] sm:h-[50px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full h-[50px] focus:ring-2 focus:ring-[#870a81] focus:border-transparent transition-all"
                         />
                       </motion.div>
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-sm mt-1" />
                   </FormItem>
                 )}
               />
@@ -170,30 +195,39 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                       <motion.div whileFocus={{ scale: 1.02 }}>
                         <Textarea
                           placeholder="Message"
-                          className="bg-gray-100 dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full sm:w-[80%] md:w-[458px] h-[100px] sm:h-[128px] mx-auto"
+                          className="bg-gray-100 dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-lg p-3 w-full min-h-[120px] resize-none focus:ring-2 focus:ring-[#870a81] focus:border-transparent transition-all"
                           rows={5}
                           {...field}
                         />
                       </motion.div>
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-sm mt-1" />
                   </FormItem>
                 )}
               />
 
               {/* Submit Button */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="pt-2 sm:pt-4"
-              >
-                <Button
-                  type="submit"
-                  className="w-[120px] sm:w-[130px] h-[38px] sm:h-[42px] rounded-[20px] mx-auto bg-[#870A81] dark:bg-[#620664] text-white px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base"
+              <div className="pt-6">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {loading ? "Sending..." : "Contact Us"}
-                </Button>
-              </motion.div>
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full h-12 rounded-full bg-[#870A81] hover:bg-[#9c1396] disabled:bg-gray-400 text-white font-medium transition-all duration-300"
+                  >
+                    {loading ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Sending...
+                      </div>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </Button>
+                </motion.div>
+              </div>
             </motion.form>
           </Form>
         </motion.div>

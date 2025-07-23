@@ -25,12 +25,34 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
+    // Only restore scroll position on page refresh (not navigation)
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    const isPageRefresh = performance.navigation?.type === 1 ||
+                         navigationEntry?.type === 'reload';
+    
+    if (savedScrollPosition && isPageRefresh) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollPosition));
+        sessionStorage.removeItem('scrollPosition');
+      }, 100);
+    }
+
+    // Save scroll position before page unload (refresh/close)
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Show loading screen for 2 seconds
+    }, 2000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, []);
 
   if (isLoading) {
@@ -39,11 +61,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Main routing structure for the application */}
       <Routes>
-        {/* Wrapper for conditional layout rendering */}
         <Route element={<AppLayout />}>
-          {/* Define individual routes for different pages */}
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
