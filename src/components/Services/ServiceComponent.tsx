@@ -19,7 +19,7 @@ const itemVariants = {
 
 const ServiceComponent = () => {
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ const ServiceComponent = () => {
         className="w-full mx-auto py-16 bg-white relative pt-36 sm:pt-56 px-4 sm:px-8 md:px-16 lg:px-32 dark:bg-[#1E1E1E]"
       >
         <motion.div
-          className="mx-auto flex flex-col sm:flex-row justify-between items-center gap-8 md:gap-12"
+          className="w-full max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-8 md:gap-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -61,7 +61,7 @@ const ServiceComponent = () => {
             <motion.img
               src="/services-img-1.avif"
               alt="Service Image"
-              className="rounded-lg shadow-lg w-full sm:w-[500px] md:w-[600px] lg:w-[700px] object-cover"
+              className="rounded-lg shadow-lg w-full max-w-[500px] md:max-w-[600px] lg:max-w-[700px] object-cover"
               whileHover={{ scale: 1.05 }}
             />
           </motion.div>
