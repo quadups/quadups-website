@@ -26,22 +26,27 @@ export const Logo = ({ isServicePage }: LogoProps) => {
 
   const logoSrc = isServicePage
     ? isDarkMode
-      ? "/logo/small-logo-white.png"
-      : "/logo/quadups-black-small-transparent.png"
-    : "/logo/small-logo-white.png";
+      ? "/logo/quadups-full-white.png"
+      : "/logo/quadups-full-black-transparent.png"
+    : "/logo/quadups-full-white.png";
 
   return (
     <Link
       to="/"
       className={`text-xl md:text-2xl font-extrabold tracking-wider ${
-        isServicePage ? (isDarkMode ? "text-white" : "text-black") : "text-white"
+        isServicePage
+          ? isDarkMode
+            ? "text-white"
+            : "text-black"
+          : "text-white"
       }`}
     >
       <img
         src={logoSrc}
         alt="Quadups Logo"
-        width={35}
-        height={35}
+        width={120}
+        height={120}
+        className="py-5"
       />
     </Link>
   );
