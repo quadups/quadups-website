@@ -39,14 +39,15 @@ const AboutHero = () => {
             className="text-base md:text-lg text-white max-w-3xl mx-auto p-6 md:p-8 rounded-tl-[50px] rounded-tr-[10px] rounded-bl-[10px] rounded-br-[50px] leading-relaxed"
             style={{ backgroundColor: "rgba(225,225,225, 0.1)" }}
           >
-            We are a technology-driven company dedicated to helping businesses
-            build, scale, and thrive in the digital world. From developing
-            powerful software solutions to creating impactful brands, we combine
-            innovation and strategy to bring ideas to life. Whether it's
-            websites, mobile apps, UI/UX design, or software consultation, we
-            provide solutions that enhance user experience and drive business
-            growth. Our mission is simple—turn your vision into reality with
-            technology that works.
+            At <b>Quadups Limited</b>, we don’t just build software, we build startups.
+
+            We specialize in Startup-as-a-Service (SaaSaaS), a rare model and term which we hope to popularize and own designed to help founders and businesses go from idea to launch with speed, clarity, and technical excellence. Acting as your technical co-founder, product team, and innovation partner, we provide full-stack support across every phase of your journey.
+
+            From validating your idea and designing scalable system architecture to building MVPs, launching products, and iterating toward growth, we handle the tech so you can focus on vision and traction.
+
+            Whether it's web and mobile apps, cloud systems, AI automation, or blockchain solutions, we combine cutting-edge development with strategic insight to turn bold ideas into market-ready products.
+
+            At Quadups, we empower the next wave of founders, by providing the tools, talent, and technology to build startups that scale.
           </motion.p>
         </div>
       </motion.div>

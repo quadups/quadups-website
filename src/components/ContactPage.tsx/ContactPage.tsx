@@ -229,6 +229,10 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                     )}
                   </Button>
                 </motion.div>
+                {/* Add this message below the button */}
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-3 text-center">
+                  Our team will reach out to you in less than 24 hours.
+                </p>
               </div>
             </motion.form>
           </Form>

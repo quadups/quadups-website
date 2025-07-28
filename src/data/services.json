@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Website Design & Development",
+    "description": "We build conversion-optimized, scalable websites tailored to startups, from MVPs to full-scale platforms. Whether it's a product landing page or a complex SaaS dashboard, we combine performance and aesthetics to give your venture a powerful digital home.",
+    "image": "/services-img-2.avif",
+    "buttonText": "Start a Web Project",
+    "layout": "imageLeft",
+    "backgroundColor": "bg-[#DADADA] dark:bg-[#2E2E2E]"
+  },
+  {
+    "id": 2,
+    "title": "Mobile App Development",
+    "description": "Take your startup mobile with intuitive, feature-rich apps for iOS and Android. We create cross-platform solutions that drive engagement and scale seamlessly as your business grows.",
+    "image": "/service-img-3.avif",
+    "buttonText": "Start a Mobile Dev Project",
+    "layout": "imageRight",
+    "backgroundColor": "bg-[#ECECEC] dark:bg-[#3A3A3A]"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design",
+    "description": "Design that makes your product not just usable, but lovable. Our UI/UX services are focused on startup needs, validating ideas quickly, delivering delightful user journeys, and turning first-time users into loyal customers.",
+    "image": "/services-img-5.avif",
+    "buttonText": "Start a UI/UX Project",
+    "layout": "imageLeft",
+    "backgroundColor": "bg-[#DADADA] dark:bg-[#2E2E2E]"
+  },
+  {
+    "id": 4,
+    "title": "Branding for Startups",
+    "description": "We help startups craft bold, cohesive, and memorable brands, from logos to full identity systems. Stand out in your market with branding that communicates your mission and connects with your audience.",
+    "image": "/services-img-4.avif",
+    "buttonText": "Start a Branding Project",
+    "layout": "imageRight",
+    "backgroundColor": "bg-[#ECECEC] dark:bg-[#3A3A3A]"
+  },
+  {
+    "id": 5,
+    "title": "Technical Consultation",
+    "description": "Unsure what to build first, how to structure your tech stack, or when to scale? Our expert advisors guide startups through strategy, architecture, and technology decisions, ensuring you build right the first time.",
+    "image": "/services-img-6.avif",
+    "buttonText": "Book a Consultation",
+    "layout": "imageLeft",
+    "backgroundColor": "bg-[#DADADA] dark:bg-[#2E2E2E]"
+  },
+  {
+    "id": 6,
+    "title": "Blockchain & Web3 Development",
+    "description": "Ready to explore decentralization? We help forward-thinking startups build blockchain solutions, from smart contracts, to dApps to NFT platforms—integrated seamlessly with your product’s vision and value.",
+    "image": "/services-img-7.avif",
+    "buttonText": "Start a Web3 Project",
+    "layout": "imageRight",
+    "backgroundColor": "bg-[#ECECEC] dark:bg-[#3A3A3A]"
+  }
+]

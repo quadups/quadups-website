@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -26,6 +26,7 @@ import { Contact } from "../ContactPage.tsx/ContactPage";
 import Modal from "../ui/Modal";
 import { useNavigate } from "react-router-dom";
 import { useForm as useSpreeForm } from "@formspree/react";
+import MDEditor from "@uiw/react-md-editor"; 
 
 const projectSchema = z.object({
   project_type: z.string().min(1, { message: "Please select a project type." }),
@@ -42,7 +43,7 @@ const StartProject = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   // Formspree form hook
-  const [state, handleSubmit] = useSpreeForm("myzekwel"); // Replace with your Formspree ID
+  const [state, handleSubmit] = useSpreeForm("myzekwel"); 
   const complete = state.succeeded;
 
   const form = useForm<z.infer<typeof projectSchema>>({
@@ -225,13 +226,20 @@ const StartProject = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
+                      {/* Softer, less prominent helper text */}
+                      <div className="mb-2 text-xs text-gray-500 dark:text-gray-400">
+                        Describe your project in detail. You can elaborate on your idea, add image samples, links, and use Markdown formatting (bold, headings, lists, etc.) to make your vision clear. The more details you provide, the better!
+                      </div>
                       <FormControl>
-                        <Textarea
-                          placeholder="Project Description"
-                          {...field}
-                          rows={4}
-                          className="w-full p-5 border rounded-lg bg-[#D9D9D975] dark:bg-[#3A3A3A] text-black dark:text-white"
-                        />
+                        <div data-color-mode="light" className="w-full">
+                          <MDEditor
+                            value={field.value}
+                            onChange={field.onChange}
+                            height={200}
+                            preview="edit"
+                            className="w-full bg-[#D9D9D975] dark:bg-[#3A3A3A] text-black dark:text-white rounded-lg"
+                          />
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -248,6 +256,9 @@ const StartProject = () => {
                     {state.submitting ? "Sending..." : "Send Project Enquiry"}
                   </Button>
                 </div>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-3 text-center">
+                  Our team will reach out to you in less than 24 hours.
+                </p>
               </form>
             </Form>
           </div>
