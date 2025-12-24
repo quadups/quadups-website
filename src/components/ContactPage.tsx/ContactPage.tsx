@@ -95,7 +95,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative w-full max-w-[885px] min-h-[400px] md:min-h-[558px] rounded-lg bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg overflow-y-auto"
+          className="relative w-full max-w-[780px] min-h-[280px] md:min-h-[420px] rounded-lg bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 md:p-8 lg:p-10 text-center shadow-lg overflow-y-auto"
         >
           {/* Close Button */}
           <motion.button
@@ -112,14 +112,14 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 sm:mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 sm:mb-4"
           >
             Get in Touch
           </motion.h2>
 
           {/* Calendly booking option */}
-          <div className="mb-6">
-            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+          <div className="mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm">
               Prefer to schedule a call? 
               <button
                 onClick={openCalendly}
@@ -128,8 +128,8 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
                 Book a meeting with us
               </button>
             </p>
-            
-            <div className="flex items-center my-6">
+
+            <div className="flex items-center my-4">
               <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
               <span className="px-4 text-gray-500 dark:text-gray-400 text-xs">OR SEND A MESSAGE</span>
               <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
@@ -141,7 +141,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
             <motion.form
               ref={formRef}
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4 sm:space-y-5 md:space-y-6 max-w-md mx-auto pb-8"
+              className="space-y-3 sm:space-y-4 md:space-y-4 max-w-md mx-auto pb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -209,7 +209,7 @@ export const Contact = ({ onClose }: { onClose?: () => void }) => {
               />
 
               {/* Submit Button */}
-              <div className="pt-6">
+              <div className="pt-4">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

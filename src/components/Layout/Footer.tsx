@@ -84,6 +84,12 @@ const Footer = () => {
             <p>&copy; Quadups Ltd. {new Date().getFullYear()}</p>
             <p>
               📞{" "}
+              <a href="tel:+447350156560" className="hover:underline">
+                +44 7350 156560
+              </a>
+            </p>
+            <p>
+              📞{" "}
               <a href="tel:+2347064603807" className="hover:underline">
                 +234 706 460 3807
               </a>

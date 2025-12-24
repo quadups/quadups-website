@@ -26,7 +26,8 @@ import { Contact } from "../ContactPage.tsx/ContactPage";
 import Modal from "../ui/Modal";
 import { useNavigate } from "react-router-dom";
 import { useForm as useSpreeForm } from "@formspree/react";
-import MDEditor from "@uiw/react-md-editor"; 
+import MDEditor from "@uiw/react-md-editor";
+import { SEO } from "@/components/SEO/SEO";
 
 const projectSchema = z.object({
   project_type: z.string().min(1, { message: "Please select a project type." }),
@@ -84,6 +85,13 @@ const StartProject = () => {
 
   return (
     <>
+      <SEO
+        title="Start Your Project - Get Your MVP Built | Quadups UK & Nigeria"
+        description="Ready to build your next big idea? Partner with Quadups to develop your MVP, web app, mobile app, or custom software solution. Serving startups and businesses in UK and Nigeria. Get started today!"
+        keywords="start a project, build MVP, hire developers UK, hire developers Nigeria, startup development, custom software project, web app development, mobile app project, software development quote, tech consulting, build my app, software development company"
+        url="https://quadups.com/startaproject"
+        type="website"
+      />
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         {/* Left: Mobile View Navbar */}
         <div className="md:hidden w-full relative">
