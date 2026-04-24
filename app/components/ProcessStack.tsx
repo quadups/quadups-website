@@ -19,7 +19,9 @@ export function ProcessStack({ steps }: ProcessStackProps) {
     const container = containerRef.current;
     const cards = cardRefs.current.filter(Boolean) as HTMLLIElement[];
 
-    if (reduceMotion || !container || cards.length < 2) return;
+    const compactViewport = window.matchMedia("(max-width: 760px)").matches;
+
+    if (reduceMotion || compactViewport || !container || cards.length < 2) return;
 
     const ctx = gsap.context(() => {
       gsap.set(cards[0], { yPercent: 0, scale: 1, rotate: 0, opacity: 1 });
