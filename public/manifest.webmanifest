@@ -1,0 +1,19 @@
+{
+  "name": "Quadups Limited",
+  "short_name": "Quadups",
+  "description": "Startup-as-a-Service, MVP development, AI automation, cloud, DevOps, blockchain, and cybersecurity engineering.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050005",
+  "theme_color": "#870A81",
+  "lang": "en-GB",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

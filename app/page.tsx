@@ -1,7 +1,75 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { JsonLd } from "./components/JsonLd";
 import { metrics, process, services } from "./content";
 import { ProcessStack } from "./components/ProcessStack";
 import { PageShell } from "./components/SiteChrome";
+import { absoluteUrl, company, pageMetadata, siteUrl } from "./seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Startup-as-a-Service, MVP Development & Technical Co-Founder Support | Quadups",
+  description:
+    "Quadups Limited helps founders and businesses in the UK, US, Europe, Africa, and Nigeria validate ideas, build MVPs, launch secure products, and scale with AI automation, cloud, DevOps, blockchain, and cybersecurity.",
+  path: "/",
+  keywords: [
+    "Startup-as-a-Service UK",
+    "technical co-founder Africa",
+    "MVP development Nigeria",
+    "AI automation United States",
+    "software development Europe",
+  ],
+});
+
+const homeJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/#startup-as-a-service`,
+    name: "Startup-as-a-Service and technical product development",
+    provider: { "@id": `${siteUrl}/#organization` },
+    serviceType: company.services,
+    areaServed: company.regions.map((name) => ({ "@type": "Place", name })),
+    url: siteUrl,
+    description:
+      "End-to-end startup technology support including idea validation, MVP development, product engineering, AI automation, cloud, DevOps, blockchain, and cybersecurity.",
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl("/startproject"),
+      category: "Technology consulting",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Startup-as-a-Service?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Startup-as-a-Service is Quadups Limited's model for acting as a technical co-founder, product team, and innovation partner across validation, MVP development, launch, and iteration while founders retain ownership.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which regions does Quadups serve?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Quadups works with founders, startups, and businesses across the United Kingdom, United States, Europe, Africa, and Nigeria.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What does Quadups build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Quadups builds web platforms, software products, mobile applications, cloud and DevOps infrastructure, AI automation systems, blockchain solutions, and cybersecurity foundations.",
+        },
+      },
+    ],
+  },
+];
 
 function ProductConsole() {
   return (
@@ -53,6 +121,7 @@ function ProductConsole() {
 export default function Home() {
   return (
     <PageShell>
+      <JsonLd data={homeJsonLd} />
       <section className="hero-section" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow" data-hero-stagger>
@@ -121,7 +190,7 @@ export default function Home() {
       </section>
 
       <section className="process-section" id="process" aria-labelledby="process-title" data-reveal>
-        <div>
+        <div className="process-copy">
           <p className="eyebrow" data-reveal-item>
             Research before code
           </p>
@@ -162,6 +231,53 @@ export default function Home() {
         <Link className="primary-button" href="/startproject" data-reveal-item>
           Partner with Quadups
         </Link>
+      </section>
+
+      <section className="seo-answer-section" aria-labelledby="regional-title" data-reveal>
+        <p className="eyebrow" data-reveal-item>
+          Regional startup technology partner
+        </p>
+        <h2 id="regional-title" data-reveal-item>
+          Built for founders scaling across the UK, US, Europe, Africa, and Nigeria.
+        </h2>
+        <p data-reveal-item>
+          Quadups supports early-stage and scaling teams that need a reliable technical partner for product strategy,
+          MVP development, software engineering, AI automation, cloud infrastructure, DevOps, cybersecurity, and
+          blockchain delivery. Our work is designed for cross-border teams that need secure systems, fast iteration,
+          and practical product decisions.
+        </p>
+      </section>
+
+      <section className="faq-section" aria-labelledby="faq-title" data-reveal>
+        <p className="eyebrow" data-reveal-item>
+          Quick answers
+        </p>
+        <h2 id="faq-title" data-reveal-item>
+          Common questions founders ask Quadups.
+        </h2>
+        <div className="faq-grid">
+          <article data-reveal-item>
+            <h3>What is Startup-as-a-Service?</h3>
+            <p>
+              It is Quadups&apos; model for operating as your technical co-founder, product team, and innovation
+              partner from validation to MVP, launch, and iteration.
+            </p>
+          </article>
+          <article data-reveal-item>
+            <h3>Who does Quadups work with?</h3>
+            <p>
+              We partner with founders, startups, SMEs, and scaling teams across the United Kingdom, United States,
+              Europe, Africa, and Nigeria.
+            </p>
+          </article>
+          <article data-reveal-item>
+            <h3>What can Quadups build?</h3>
+            <p>
+              We build secure web platforms, mobile apps, AI automation systems, cloud and DevOps infrastructure,
+              blockchain products, and cybersecurity foundations.
+            </p>
+          </article>
+        </div>
       </section>
     </PageShell>
   );

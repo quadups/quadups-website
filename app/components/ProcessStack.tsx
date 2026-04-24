@@ -27,6 +27,10 @@ export function ProcessStack({ steps }: ProcessStackProps) {
         gsap.set(card, { yPercent: 118, scale: 1, rotate: 0, opacity: 1 });
       });
 
+      cards.forEach((card, index) => {
+        gsap.set(card, { zIndex: index + 1 });
+      });
+
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container,

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { MotionLayer } from "./MotionLayer";
 
 export const navLinks = [
@@ -7,6 +10,11 @@ export const navLinks = [
   ["About us", "/about"],
   ["Contact", "/contact"],
 ];
+
+function isActivePath(pathname: string | null, href: string) {
+  if (!pathname) return false;
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function Logo() {
   return (
@@ -23,17 +31,30 @@ export function Logo() {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   return (
     <header className="site-nav">
       <Logo />
       <nav aria-label="Primary navigation">
-        {navLinks.map(([label, href]) => (
-          <Link href={href} key={href}>
-            {label}
-          </Link>
-        ))}
+        {navLinks.map(([label, href]) => {
+          const active = isActivePath(pathname, href);
+          return (
+            <Link
+              href={href}
+              key={href}
+              className={active ? "is-active" : undefined}
+              aria-current={active ? "page" : undefined}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </nav>
-      <Link className="nav-cta" href="/startproject">
+      <Link
+        className={`nav-cta${isActivePath(pathname, "/startproject") ? " is-active" : ""}`}
+        href="/startproject"
+        aria-current={isActivePath(pathname, "/startproject") ? "page" : undefined}
+      >
         Start a project
       </Link>
     </header>
@@ -57,11 +78,13 @@ export function SiteFooter() {
           ))}
           <Link href="/startproject">Start a project</Link>
         </nav>
-        <div className="footer-signal interactive-card" data-reveal-item>
-          <span>Next build window</span>
-          <strong>Open</strong>
-          <Link href="mailto:hello@quadupsltd.com">hello@quadupsltd.com</Link>
-        </div>
+        <Link href="mailto:hello@quadupsltd.com">
+          <div className="footer-signal interactive-card" data-reveal-item>
+            <span>Next build window</span>
+            <strong>Open</strong>
+            <span>hello@quadupsltd.com</span>
+          </div>
+        </Link>
       </div>
       <div className="footer-bottom" data-reveal-item>
         <span>Quadups Limited</span>

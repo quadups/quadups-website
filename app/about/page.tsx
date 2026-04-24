@@ -1,11 +1,37 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
 import { ProcessStack } from "../components/ProcessStack";
 import { PageShell } from "../components/SiteChrome";
 import { process } from "../content";
+import { pageMetadata, siteUrl } from "../seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About Quadups Limited | Technical Co-Founder & Startup Product Partner",
+  description:
+    "Learn how Quadups Limited partners with founders and businesses as a technical co-founder, product team, and secure software delivery partner across the UK, US, Europe, Africa, and Nigeria.",
+  path: "/about",
+  keywords: [
+    "about Quadups Limited",
+    "technical co-founder partner",
+    "startup product team",
+    "software delivery partner UK Nigeria",
+  ],
+});
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${siteUrl}/about#about`,
+  name: "About Quadups Limited",
+  url: `${siteUrl}/about`,
+  mainEntity: { "@id": `${siteUrl}/#organization` },
+};
 
 export default function AboutPage() {
   return (
     <PageShell>
+      <JsonLd data={aboutJsonLd} />
       <section className="subpage-hero about-hero" data-reveal>
         <p className="eyebrow" data-reveal-item>
           About Quadups
@@ -19,7 +45,7 @@ export default function AboutPage() {
       </section>
 
       <section className="process-section" data-reveal>
-        <div>
+        <div className="process-copy">
           <p className="eyebrow" data-reveal-item>
             How we work
           </p>
