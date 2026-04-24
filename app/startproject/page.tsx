@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { MotionLayer } from "../components/MotionLayer";
 import { JsonLd } from "../components/JsonLd";
+import { RichProjectBrief } from "../components/RichProjectBrief";
 import { WirePanel } from "../components/SiteChrome";
 import { pageMetadata, siteUrl } from "../seo";
 
@@ -38,7 +39,10 @@ export default function StartProjectPage() {
       <JsonLd data={startProjectJsonLd} />
       <MotionLayer />
       <WirePanel>
-        <h1 data-hero-stagger>Let&apos;s bring your visions into reality</h1>
+        <div className="project-hero-copy" data-hero-stagger>
+          <p>Founder intake</p>
+          <h1>Let&apos;s shape your idea into a launch-ready product.</h1>
+        </div>
       </WirePanel>
       <section className="project-form-section" aria-labelledby="project-title">
         <div className="project-form-wrap">
@@ -46,33 +50,52 @@ export default function StartProjectPage() {
             <span aria-hidden="true">{"<"}</span>
             Back
           </Link>
-          <p className="eyebrow" data-hero-stagger>
-            Start a project
-          </p>
-          <h2 id="project-title" data-hero-stagger>
-            Tell us what you&apos;re building.
-          </h2>
-          <form className="project-form" action={FORM_ENDPOINT} method="POST" data-hero-stagger>
-            <input type="hidden" name="_subject" value="New Quadups project enquiry" />
-            <select name="projectType" defaultValue="" aria-label="Select project type" required>
-              <option value="" disabled>
-                Select Project Type
-              </option>
-              <option>Startup-as-a-Service</option>
-              <option>Web or software platform</option>
-              <option>Mobile application</option>
-              <option>AI automation</option>
-              <option>Cloud, DevOps, or security</option>
-            </select>
-            <input name="name" placeholder="Name" aria-label="Name" required />
-            <input name="email" placeholder="Email" aria-label="Email" type="email" required />
-            <label>
-              Describe your project in detail. Add your idea, links, references, goals, and any must-have features.
-              <textarea name="details" aria-label="Project details" required />
-            </label>
-            <button type="submit">Send Project Enquiry</button>
-          </form>
-          <p className="form-note">Our team will reach out to you in less than 24 hours.</p>
+          <div className="project-intake-card" data-hero-stagger>
+            <div className="project-intake-head">
+              <p className="eyebrow">Start a project</p>
+              <h2 id="project-title">Tell us what you&apos;re building.</h2>
+              <p>
+                Share the shape of the product, where you are now, and what a successful first milestone looks like.
+              </p>
+            </div>
+
+            <form className="project-form" action={FORM_ENDPOINT} method="POST">
+              <input type="hidden" name="_subject" value="New Quadups project enquiry" />
+              <label className="project-field project-field-full">
+                <span>Project type</span>
+                <select name="projectType" defaultValue="" aria-label="Select project type" required>
+                  <option value="" disabled>
+                    Select Project Type
+                  </option>
+                  <option>Startup-as-a-Service</option>
+                  <option>Web or software platform</option>
+                  <option>Mobile application</option>
+                  <option>AI automation</option>
+                  <option>Cloud, DevOps, or security</option>
+                </select>
+              </label>
+              <label className="project-field">
+                <span>Name</span>
+                <input name="name" placeholder="Your name" aria-label="Name" required />
+              </label>
+              <label className="project-field">
+                <span>Email</span>
+                <input name="email" placeholder="you@example.com" aria-label="Email" type="email" required />
+              </label>
+              <label className="project-field project-field-full">
+                <span>Project brief</span>
+                <small>
+                  Include the idea, target users, deadline, useful links, and anything that would help us understand the
+                  opportunity quickly.
+                </small>
+                <RichProjectBrief />
+              </label>
+              <div className="project-submit-row">
+                <button type="submit">Send Project Enquiry</button>
+                <p>We usually respond in less than 24 hours.</p>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </main>
