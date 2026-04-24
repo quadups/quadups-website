@@ -32,8 +32,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: [{ url: "/quadups-black-small-transparent.svg", type: "image/svg+xml" }],
+    shortcut: "/quadups-black-small-transparent.svg",
+    apple: "/quadups-black-small-transparent.svg",
   },
   manifest: absoluteUrl("/manifest.webmanifest"),
   other: {
