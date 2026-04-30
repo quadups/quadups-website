@@ -79,7 +79,7 @@ export default function ContactPage() {
           <div className="contact-meta">
             <div>
               <span>Email</span>
-              <a href="mailto:hello@quadupsltd.com">hello@quadupsltd.com</a>
+              <a href="mailto:hello@quadupsltd.com" data-tooltip="hello@quadupsltd.com">hello@quadupsltd.com</a>
             </div>
             <div>
               <span>Response time</span>

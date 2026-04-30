@@ -1036,6 +1036,49 @@ h3 {
   font-weight: 620;
   letter-spacing: -0.04em;
   line-height: 1.05;
+  position: relative;
+}
+
+.contact-meta a[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #870a81;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 0.45rem 1.1rem rgba(135, 10, 129, 0.3);
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.contact-meta a[data-tooltip]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.5rem solid transparent;
+  border-top-color: #870a81;
+  z-index: 1001;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .service-snake-section {
