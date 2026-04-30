@@ -1029,7 +1029,9 @@ h3 {
 .contact-meta strong {
   display: block;
   margin-bottom: 1rem;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   font-weight: 620;
   letter-spacing: -0.04em;
