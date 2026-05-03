@@ -161,10 +161,11 @@ export default function Home() {
       </section>
 
       <section className="metric-strip" aria-label="Quadups operating strengths" data-reveal>
-        {metrics.map(([label, value]) => (
+        {metrics.map(([label, value, caption]) => (
           <article className="interactive-card" key={label} data-reveal-item>
             <span>{label}</span>
             <strong>{value}</strong>
+            {caption ? <small>{caption}</small> : null}
           </article>
         ))}
       </section>

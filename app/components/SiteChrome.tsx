@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -33,32 +34,53 @@ export function Logo() {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const [showMvpBanner, setShowMvpBanner] = useState(true);
+
+  function closeMvpBanner() {
+    setShowMvpBanner(false);
+  }
+
   return (
-    <header className="site-nav">
-      <Logo />
-      <nav aria-label="Primary navigation">
-        {navLinks.map(([label, href]) => {
-          const active = isActivePath(pathname, href);
-          return (
-            <Link
-              href={href}
-              key={href}
-              className={active ? "is-active" : undefined}
-              aria-current={active ? "page" : undefined}
-            >
-              {label}
-            </Link>
-          );
-        })}
-      </nav>
-      <Link
-        className={`nav-cta${isActivePath(pathname, "/startproject") ? " is-active" : ""}`}
-        href="/startproject"
-        aria-current={isActivePath(pathname, "/startproject") ? "page" : undefined}
-      >
-        Start a project
-      </Link>
-    </header>
+    <>
+      {showMvpBanner && pathname !== "/mvp" ? (
+        <aside className="mvp-top-banner" aria-label="MVP sprint announcement">
+          <Link href="/mvp">
+            <span>New</span>
+            MVP Sprint: get your first version built for $2,000 flat
+          </Link>
+          <button type="button" onClick={closeMvpBanner} aria-label="Close MVP announcement">
+            x
+          </button>
+        </aside>
+      ) : null}
+      <div className="site-nav-stick">
+        <header className="site-nav">
+          <Logo />
+          <nav aria-label="Primary navigation">
+            {navLinks.map(([label, href]) => {
+              const active = isActivePath(pathname, href);
+              return (
+                <Link
+                  href={href}
+                  key={href}
+                  className={active ? "is-active" : undefined}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+          <Link
+            className={`nav-cta${isActivePath(pathname, "/startproject") ? " is-active" : ""}`}
+            href="/startproject"
+            aria-current={isActivePath(pathname, "/startproject") ? "page" : undefined}
+          >
+            Start a project
+          </Link>
+        </header>
+      </div>
+    </>
   );
 }
 

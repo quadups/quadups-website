@@ -67,6 +67,7 @@ export default function StartProjectPage() {
                   <option value="" disabled>
                     Select Project Type
                   </option>
+                  <option>MVP Sprint - $2,000 flat</option>
                   <option>Startup-as-a-Service</option>
                   <option>Web or software platform</option>
                   <option>Mobile application</option>

@@ -25,7 +25,7 @@ export const company = {
 export const defaultKeywords = [
   "Quadups Limited",
   "Startup-as-a-Service",
-  "SaaSaaS",
+  "STaaS",
   "technical co-founder UK",
   "technical co-founder Nigeria",
   "startup product development",

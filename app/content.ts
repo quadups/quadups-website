@@ -41,7 +41,7 @@ export const process = [
 ];
 
 export const metrics = [
-  ["Build model", "SaaSaaS"],
+  ["Build model", "STaaS", "Startup as a Service"],
   ["Ownership", "100% yours"],
   ["Coverage", "End-to-end"],
   ["Security", "Built in"],
