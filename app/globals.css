@@ -1867,8 +1867,8 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 33rem;
-    margin-top: 2.3rem;
+    min-height: 31rem;
+    margin-top: 1.8rem;
   }
 
   .hero-wire {
@@ -1879,7 +1879,7 @@ h3 {
   }
 
   .product-console {
-    top: 15rem;
+    top: 13.5rem;
     left: 0;
     width: 100%;
     min-height: auto;
@@ -1945,7 +1945,7 @@ h3 {
 
   .card-security {
     right: 0;
-    top: 0.2rem;
+    top: 2.75rem;
   }
 
   .metric-strip {
@@ -2283,11 +2283,15 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 35rem;
+    min-height: 32rem;
   }
 
   .product-console {
-    top: 16.6rem;
+    top: 14rem;
+  }
+
+  .card-security {
+    top: 3rem;
   }
 
   .delivery-map {
