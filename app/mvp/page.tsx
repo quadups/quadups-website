@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "../components/JsonLd";
 import { PageShell } from "../components/SiteChrome";
+import { SectionViewEvent, TrackedAnchor, TrackedLink } from "../components/PostHogEvents";
 import { absoluteUrl, pageMetadata, siteUrl } from "../seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -43,9 +43,16 @@ export default function MvpPage() {
     <PageShell>
       <JsonLd data={mvpJsonLd} />
       <section className="mvp-offer" aria-labelledby="mvp-title">
+        <SectionViewEvent name="mvp_offer" />
         <div className="mvp-announcement" data-hero-stagger>
           <span>New</span>
-          <Link href="/startproject">Get your MVP built - $2,000 flat -&gt;</Link>
+          <TrackedLink
+            event="mvp_start_brief_clicked"
+            eventProperties={{ location: "mvp_announcement" }}
+            href="/startproject"
+          >
+            Get your MVP built - $2,000 flat -&gt;
+          </TrackedLink>
         </div>
 
         <div className="mvp-heading">
@@ -78,9 +85,14 @@ export default function MvpPage() {
               <li>Great if you&apos;re still scoping</li>
               <li>Written reply you can share</li>
             </ul>
-            <Link className="mvp-card-button" href="/startproject">
+            <TrackedLink
+              className="mvp-card-button"
+              event="mvp_start_brief_clicked"
+              eventProperties={{ location: "mvp_brief_card" }}
+              href="/startproject"
+            >
               Start the brief -&gt;
-            </Link>
+            </TrackedLink>
           </article>
 
           <article className="mvp-choice-card interactive-card" data-reveal-item>
@@ -95,14 +107,16 @@ export default function MvpPage() {
               <li>Best if you&apos;re ready to start</li>
               <li>No sales pitch, real engineers</li>
             </ul>
-            <a
+            <TrackedAnchor
               className="mvp-card-button mvp-card-button-dark"
+              event="mvp_book_call_clicked"
+              eventProperties={{ location: "mvp_call_card" }}
               href="https://calendly.com/quadupsltd/30min"
               rel="noreferrer"
               target="_blank"
             >
               See available times -&gt;
-            </a>
+            </TrackedAnchor>
           </article>
         </div>
       </section>

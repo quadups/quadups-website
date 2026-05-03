@@ -1,9 +1,9 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "./components/JsonLd";
 import { metrics, process, services } from "./content";
 import { ProcessStack } from "./components/ProcessStack";
 import { PageShell } from "./components/SiteChrome";
+import { SectionViewEvent, TrackedLink } from "./components/PostHogEvents";
 import { absoluteUrl, company, pageMetadata, siteUrl } from "./seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -123,6 +123,7 @@ export default function Home() {
     <PageShell>
       <JsonLd data={homeJsonLd} />
       <section className="hero-section" aria-labelledby="hero-title">
+        <SectionViewEvent name="home_hero" />
         <div className="hero-copy">
           <p className="eyebrow" data-hero-stagger>
             Startup-as-a-Service for ambitious teams
@@ -135,12 +136,22 @@ export default function Home() {
             through end-to-end tech solutions that drive real impact.
           </p>
           <div className="hero-actions" data-hero-stagger>
-            <Link className="primary-button" href="/startproject">
+            <TrackedLink
+              className="primary-button"
+              event="start_project_clicked"
+              eventProperties={{ location: "home_hero_primary" }}
+              href="/startproject"
+            >
               Start a project
-            </Link>
-            <Link className="secondary-button" href="/services">
+            </TrackedLink>
+            <TrackedLink
+              className="secondary-button"
+              event="services_clicked"
+              eventProperties={{ location: "home_hero_secondary" }}
+              href="/services"
+            >
               Explore services
-            </Link>
+            </TrackedLink>
           </div>
         </div>
 
@@ -161,6 +172,7 @@ export default function Home() {
       </section>
 
       <section className="metric-strip" aria-label="Quadups operating strengths" data-reveal>
+        <SectionViewEvent name="metrics" />
         {metrics.map(([label, value, caption]) => (
           <article className="interactive-card" key={label} data-reveal-item>
             <span>{label}</span>
@@ -171,6 +183,7 @@ export default function Home() {
       </section>
 
       <section className="services-section" id="services" aria-labelledby="services-title" data-reveal>
+        <SectionViewEvent name="services_preview" />
         <div className="section-heading">
           <p className="eyebrow" data-reveal-item>
             What we do
@@ -191,6 +204,7 @@ export default function Home() {
       </section>
 
       <section className="process-section" id="process" aria-labelledby="process-title" data-reveal>
+        <SectionViewEvent name="how_we_work" />
         <div className="process-copy">
           <p className="eyebrow" data-reveal-item>
             Research before code
@@ -207,6 +221,7 @@ export default function Home() {
       </section>
 
       <section className="security-section" id="security" aria-labelledby="security-title" data-reveal>
+        <SectionViewEvent name="security" />
         <div className="security-panel interactive-card" data-reveal-item>
           <p className="eyebrow">Built secure from day one</p>
           <h2 id="security-title">Performance, scalability, and protection in the same blueprint.</h2>
@@ -223,18 +238,26 @@ export default function Home() {
       </section>
 
       <section className="cta-section" aria-labelledby="cta-title" data-reveal>
+        <SectionViewEvent name="home_cta" />
         <p className="eyebrow" data-reveal-item>
           Let&apos;s build something game-changing
         </p>
         <h2 id="cta-title" data-reveal-item>
           Bring the idea. We&apos;ll bring the product team.
         </h2>
-        <Link className="primary-button" href="/startproject" data-reveal-item>
+        <TrackedLink
+          className="primary-button"
+          event="start_project_clicked"
+          eventProperties={{ location: "home_bottom_cta" }}
+          href="/startproject"
+          data-reveal-item
+        >
           Partner with Quadups
-        </Link>
+        </TrackedLink>
       </section>
 
       <section className="seo-answer-section" aria-labelledby="regional-title" data-reveal>
+        <SectionViewEvent name="regional_seo_answer" />
         <p className="eyebrow" data-reveal-item>
           Regional startup technology partner
         </p>
@@ -250,6 +273,7 @@ export default function Home() {
       </section>
 
       <section className="faq-section" aria-labelledby="faq-title" data-reveal>
+        <SectionViewEvent name="faq" />
         <p className="eyebrow" data-reveal-item>
           Quick answers
         </p>

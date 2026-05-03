@@ -1,5 +1,7 @@
 "use client";
 
+import { TrackedButton } from "./PostHogEvents";
+
 export function CalendlyButton() {
   const openCalendly = () => {
     const calendlyLink = "https://calendly.com/quadupsltd/30min";
@@ -7,8 +9,14 @@ export function CalendlyButton() {
   };
 
   return (
-    <button className="secondary-button calendly-button" type="button" onClick={openCalendly}>
+    <TrackedButton
+      className="secondary-button calendly-button"
+      event="calendly_clicked"
+      eventProperties={{ location: "contact_hero" }}
+      type="button"
+      onClick={openCalendly}
+    >
       Book a 30 min call
-    </button>
+    </TrackedButton>
   );
 }

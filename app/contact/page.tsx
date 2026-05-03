@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CalendlyButton } from "../components/CalendlyButton";
 import { JsonLd } from "../components/JsonLd";
+import { SectionViewEvent, TrackedAnchor, TrackedForm } from "../components/PostHogEvents";
 import { PageShell } from "../components/SiteChrome";
 import { company, pageMetadata, siteUrl } from "../seo";
 
@@ -43,6 +44,7 @@ export default function ContactPage() {
     <PageShell>
       <JsonLd data={contactJsonLd} />
       <section className="contact-layout" data-reveal>
+        <SectionViewEvent name="contact" />
         <div className="subpage-hero contact-copy">
           <p className="eyebrow" data-reveal-item>
             Contact
@@ -54,13 +56,18 @@ export default function ContactPage() {
           </p>
           <div className="contact-actions" data-reveal-item>
             <CalendlyButton />
-            <a className="primary-button" href="mailto:hello@quadupsltd.com">
+            <TrackedAnchor
+              className="primary-button"
+              event="email_clicked"
+              eventProperties={{ location: "contact_hero" }}
+              href="mailto:hello@quadupsltd.com"
+            >
               Email us
-            </a>
+            </TrackedAnchor>
           </div>
         </div>
         <div className="contact-card interactive-card" data-reveal-item>
-          <form className="contact-form" action={FORM_ENDPOINT} method="POST">
+          <TrackedForm className="contact-form" action={FORM_ENDPOINT} event="contact_form_submitted" method="POST">
             <input type="hidden" name="_subject" value="New Quadups contact message" />
             <label>
               <span>Name</span>
@@ -76,7 +83,7 @@ export default function ContactPage() {
             </label>
             <button type="submit">Send message</button>
             <p className="form-privacy-note">No spam. We only use your email to reply about your idea or enquiry.</p>
-          </form>
+          </TrackedForm>
           <div className="contact-meta">
             <div>
               <span>Email</span>

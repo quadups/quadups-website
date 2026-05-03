@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MotionLayer } from "./MotionLayer";
+import { trackEvent, TrackedLink } from "./PostHogEvents";
 
 export const navLinks = [
   ["MVP", "/mvp"],
@@ -37,6 +38,7 @@ export function SiteHeader() {
   const [showMvpBanner, setShowMvpBanner] = useState(true);
 
   function closeMvpBanner() {
+    trackEvent("mvp_banner_closed");
     setShowMvpBanner(false);
   }
 
@@ -44,10 +46,10 @@ export function SiteHeader() {
     <>
       {showMvpBanner && pathname !== "/mvp" ? (
         <aside className="mvp-top-banner" aria-label="MVP sprint announcement">
-          <Link href="/mvp">
+          <TrackedLink event="mvp_banner_clicked" href="/mvp">
             <span>New</span>
             MVP Sprint: get your first version built for $2,000 flat
-          </Link>
+          </TrackedLink>
           <button type="button" onClick={closeMvpBanner} aria-label="Close MVP announcement">
             x
           </button>
@@ -60,25 +62,29 @@ export function SiteHeader() {
             {navLinks.map(([label, href]) => {
               const active = isActivePath(pathname, href);
               return (
-                <Link
-                  href={href}
-                  key={href}
-                  className={active ? "is-active" : undefined}
-                  aria-current={active ? "page" : undefined}
-                >
-                  {label}
-                </Link>
-              );
-            })}
-          </nav>
-          <Link
-            className={`nav-cta${isActivePath(pathname, "/startproject") ? " is-active" : ""}`}
-            href="/startproject"
-            aria-current={isActivePath(pathname, "/startproject") ? "page" : undefined}
-          >
-            Start a project
-          </Link>
-        </header>
+              <TrackedLink
+                href={href}
+                key={href}
+                event="nav_link_clicked"
+                eventProperties={{ label, href, location: "header" }}
+                className={active ? "is-active" : undefined}
+                aria-current={active ? "page" : undefined}
+              >
+                {label}
+              </TrackedLink>
+            );
+          })}
+        </nav>
+        <TrackedLink
+          className={`nav-cta${isActivePath(pathname, "/startproject") ? " is-active" : ""}`}
+          event="start_project_clicked"
+          eventProperties={{ location: "header_nav" }}
+          href="/startproject"
+          aria-current={isActivePath(pathname, "/startproject") ? "page" : undefined}
+        >
+          Start a project
+        </TrackedLink>
+      </header>
       </div>
     </>
   );
@@ -95,19 +101,26 @@ export function SiteFooter() {
         </div>
         <nav aria-label="Footer navigation" data-reveal-item>
           {navLinks.map(([label, href]) => (
-            <Link href={href} key={href}>
+            <TrackedLink
+              event="nav_link_clicked"
+              eventProperties={{ label, href, location: "footer" }}
+              href={href}
+              key={href}
+            >
               {label}
-            </Link>
+            </TrackedLink>
           ))}
-          <Link href="/startproject">Start a project</Link>
+          <TrackedLink event="start_project_clicked" eventProperties={{ location: "footer_nav" }} href="/startproject">
+            Start a project
+          </TrackedLink>
         </nav>
-        <Link href="mailto:hello@quadupsltd.com">
+        <TrackedLink event="email_clicked" eventProperties={{ location: "footer_signal" }} href="mailto:hello@quadupsltd.com">
           <div className="footer-signal interactive-card" data-reveal-item>
             <span>Next build window</span>
             <strong>Open</strong>
             <span>hello@quadupsltd.com</span>
           </div>
-        </Link>
+        </TrackedLink>
       </div>
       <div className="footer-bottom" data-reveal-item>
         <span>Quadups Limited</span>

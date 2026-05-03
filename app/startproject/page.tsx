@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { MotionLayer } from "../components/MotionLayer";
 import { JsonLd } from "../components/JsonLd";
+import { SectionViewEvent, TrackedForm, TrackedLink, TrackedSelect } from "../components/PostHogEvents";
 import { RichProjectBrief } from "../components/RichProjectBrief";
 import { WirePanel } from "../components/SiteChrome";
 import { pageMetadata, siteUrl } from "../seo";
@@ -45,11 +45,18 @@ export default function StartProjectPage() {
         </div>
       </WirePanel>
       <section className="project-form-section" aria-labelledby="project-title">
+        <SectionViewEvent name="start_project_form" />
         <div className="project-form-wrap">
-          <Link className="back-link" href="/" data-hero-stagger aria-label="Back to home">
+          <TrackedLink
+            className="back-link"
+            event="start_project_back_clicked"
+            href="/"
+            data-hero-stagger
+            aria-label="Back to home"
+          >
             <span aria-hidden="true">{"<"}</span>
             Back
-          </Link>
+          </TrackedLink>
           <div className="project-intake-card" data-hero-stagger>
             <div className="project-intake-head">
               <p className="eyebrow">Start a project</p>
@@ -59,11 +66,22 @@ export default function StartProjectPage() {
               </p>
             </div>
 
-            <form className="project-form" action={FORM_ENDPOINT} method="POST">
+            <TrackedForm
+              className="project-form"
+              action={FORM_ENDPOINT}
+              event="start_project_form_submitted"
+              method="POST"
+            >
               <input type="hidden" name="_subject" value="New Quadups project enquiry" />
               <label className="project-field project-field-full">
                 <span>Project type</span>
-                <select name="projectType" defaultValue="" aria-label="Select project type" required>
+                <TrackedSelect
+                  name="projectType"
+                  defaultValue=""
+                  aria-label="Select project type"
+                  event="project_type_selected"
+                  required
+                >
                   <option value="" disabled>
                     Select Project Type
                   </option>
@@ -73,7 +91,7 @@ export default function StartProjectPage() {
                   <option>Mobile application</option>
                   <option>AI automation</option>
                   <option>Cloud, DevOps, or security</option>
-                </select>
+                </TrackedSelect>
               </label>
               <label className="project-field">
                 <span>Name</span>
@@ -95,7 +113,7 @@ export default function StartProjectPage() {
                 <button type="submit">Send Project Enquiry</button>
                 <p>We usually respond in less than 24 hours. No spam, only replies about your idea or project enquiry.</p>
               </div>
-            </form>
+            </TrackedForm>
           </div>
         </div>
       </section>

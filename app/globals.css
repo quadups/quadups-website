@@ -52,6 +52,14 @@ a {
   text-decoration: none;
 }
 
+.analytics-sentinel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+}
+
 .site-shell {
   width: min(100%, 92rem);
   margin: 0 auto;
