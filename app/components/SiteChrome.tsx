@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { MotionLayer } from "./MotionLayer";
 
 export const navLinks = [
+  ["MVP", "/mvp"],
   ["Services", "/services"],
   ["About us", "/about"],
   ["Contact", "/contact"],

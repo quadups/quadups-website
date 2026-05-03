@@ -92,7 +92,7 @@ export default function StartProjectPage() {
               </label>
               <div className="project-submit-row">
                 <button type="submit">Send Project Enquiry</button>
-                <p>We usually respond in less than 24 hours.</p>
+                <p>We usually respond in less than 24 hours. No spam, only replies about your idea or project enquiry.</p>
               </div>
             </form>
           </div>

@@ -75,6 +75,7 @@ export default function ContactPage() {
               <textarea name="message" placeholder="How can we help?" required />
             </label>
             <button type="submit">Send message</button>
+            <p className="form-privacy-note">No spam. We only use your email to reply about your idea or enquiry.</p>
           </form>
           <div className="contact-meta">
             <div>
